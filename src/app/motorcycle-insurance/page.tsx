@@ -96,7 +96,7 @@ const MotorcycleInsurancePage: React.FC = () => {
         image="https://i.ibb.co/Kpv9jtzh/Background-Photo-Motorcycle-Insurance.png"
         imageAlt="Motorcyclist riding a cruiser-style bike at sunset on a scenic road"
         primaryButtonText="Get Your Motorcycle Quote"
-        primaryButtonLink="/api/quote"
+        primaryButtonLink="/quote"
         showTrustBadges
         trustBadges={[
           'BBB Accredited',
@@ -175,7 +175,7 @@ const MotorcycleInsurancePage: React.FC = () => {
           </p>
 
           <div className="mt-8 text-center">
-            <Link href="/api/quote" passHref>
+            <Link href="/quote" passHref>
               <Button size="lg">Get Your Motorcycle Quote</Button>
             </Link>
           </div>
@@ -240,7 +240,7 @@ const MotorcycleInsurancePage: React.FC = () => {
               ))}
 
               <div className="mt-8">
-                <Link href="/api/quote" passHref>
+                <Link href="/quote" passHref>
                   <Button>Get Your Motorcycle Quote</Button>
                 </Link>
               </div>
@@ -307,7 +307,7 @@ const MotorcycleInsurancePage: React.FC = () => {
             It’s not just a bike—it’s freedom. Let’s protect it.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/api/quote" passHref>
+            <Link href="/quote" passHref>
               <Button
                 variant="primary"
                 size="lg"

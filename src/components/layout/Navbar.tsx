@@ -13,7 +13,7 @@ export default function Navbar() {
   const [insuranceDropdown, setInsuranceDropdown] = useState(false)
   const pathname = usePathname()
 
-  // scroll shadow
+  // add/remove scroll shadow
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 10)
     window.addEventListener('scroll', onScroll)
@@ -26,18 +26,6 @@ export default function Navbar() {
     setInsuranceDropdown(false)
   }, [pathname])
 
-  // click outside insurance dropdown
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      const dd = document.getElementById('insurance-dropdown')
-      if (dd && !dd.contains(e.target as Node)) {
-        setInsuranceDropdown(false)
-      }
-    }
-    document.addEventListener('mousedown', handler)
-    return () => document.removeEventListener('mousedown', handler)
-  }, [])
-
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About Us' },
@@ -49,11 +37,10 @@ export default function Navbar() {
     { href: '/renter-insurance', label: 'Renter Insurance' },
     { href: '/bop-insurance', label: 'Business Insurance' },
     { href: '/motorcycle-insurance', label: 'Motorcycle Insurance' },
-    // { href: '/yacht-insurance', label: 'Yacht Insurance' },
   ]
   const isActive = (href: string) => pathname === href
 
-  // split out Contact Us
+  // split Contact Us out
   const mainLinks = navLinks.filter(l => l.label !== 'Contact Us')
   const contactLink = navLinks.find(l => l.label === 'Contact Us')!
 
@@ -64,14 +51,13 @@ export default function Navbar() {
           <Image src={logo} alt="Cherries Insurance" width={150} height={40} />
         </Link>
 
-        {/* Desktop Menu */}
+        {/* Desktop */}
         <div className="hidden lg:flex items-center gap-8">
-          {/* Home & About */}
           {mainLinks.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
-              className={`font-medium transition-colors duration-300 ${
+              className={`font-medium transition-colors ${
                 isActive(href) ? 'text-primary-600' : 'hover:text-primary-600 text-neutral-800'
               }`}
             >
@@ -79,8 +65,8 @@ export default function Navbar() {
             </Link>
           ))}
 
-          {/* Insurance Dropdown */}
-          <div id="insurance-dropdown" className="relative">
+          {/* Desktop dropdown */}
+          <div className="relative">
             <button
               onClick={() => setInsuranceDropdown(op => !op)}
               className="flex items-center gap-1 font-medium text-neutral-800 hover:text-primary-600 transition-colors"
@@ -109,26 +95,21 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* Contact Us */}
           <Link
             href={contactLink.href}
-            className={`font-medium transition-colors duration-300 ${
+            className={`font-medium transition-colors ${
               isActive(contactLink.href) ? 'text-primary-600' : 'hover:text-primary-600 text-neutral-800'
             }`}
           >
             {contactLink.label}
           </Link>
 
-          {/* Quote Button */}
-          <Link
-            href="/quote"
-            className="btn btn-primary ml-4"
-          >
+          <Link href="/quote" className="btn btn-primary ml-4">
             Get a Quote
           </Link>
         </div>
 
-        {/* Mobile Toggle */}
+        {/* Mobile toggle */}
         <button
           className="lg:hidden p-2 z-20"
           onClick={() => setIsOpen(o => !o)}
@@ -142,12 +123,10 @@ export default function Navbar() {
       {isOpen && (
         <div className="lg:hidden bg-white shadow-lg absolute top-full left-0 w-full pt-6 animate-fade-in">
           <div className="container-custom flex flex-col gap-4 pb-6">
-            {/* Home & About */}
             {mainLinks.map(({ href, label }) => (
               <Link
                 key={href}
                 href={href}
-                onClick={() => setIsOpen(false)}
                 className={`py-2 font-medium transition-colors ${
                   isActive(href) ? 'text-primary-600' : 'text-neutral-800 hover:text-primary-600'
                 }`}
@@ -156,7 +135,7 @@ export default function Navbar() {
               </Link>
             ))}
 
-            {/* Insurance Dropdown */}
+            {/* Mobile dropdown */}
             <div>
               <button
                 onClick={() => setInsuranceDropdown(op => !op)}
@@ -171,10 +150,6 @@ export default function Navbar() {
                     <Link
                       key={href}
                       href={href}
-                      onClick={() => {
-                        setIsOpen(false)
-                        setInsuranceDropdown(false)
-                      }}
                       className={`py-2 font-medium transition-colors ${
                         isActive(href) ? 'text-primary-600' : 'text-neutral-800 hover:text-primary-600'
                       }`}
@@ -186,10 +161,8 @@ export default function Navbar() {
               )}
             </div>
 
-            {/* Contact Us */}
             <Link
               href={contactLink.href}
-              onClick={() => setIsOpen(false)}
               className={`py-2 font-medium transition-colors ${
                 isActive(contactLink.href) ? 'text-primary-600' : 'text-neutral-800 hover:text-primary-600'
               }`}
@@ -197,12 +170,7 @@ export default function Navbar() {
               {contactLink.label}
             </Link>
 
-            {/* Quote Button */}
-            <Link
-              href="/quote"
-              onClick={() => setIsOpen(false)}
-              className="btn btn-primary w-full text-center mt-4"
-            >
+            <Link href="/quote" className="btn btn-primary w-full text-center mt-4">
               Get a Quote
             </Link>
           </div>

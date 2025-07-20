@@ -78,7 +78,7 @@ const BOPInsurancePage: React.FC = () => {
         image="https://i.ibb.co/B2vfRqH5/Background-Photo-Business-Insurance.png"
         imageAlt="Modern commercial building exterior with clear signage, symbolizing small business coverage"
         primaryButtonText="Get Your Business Quote"
-        primaryButtonLink="/api/quote"
+        primaryButtonLink="/quote"
         showTrustBadges
         trustBadges={[
           'BBB Accredited',
@@ -112,7 +112,7 @@ const BOPInsurancePage: React.FC = () => {
                 </p>
 
                 <div className="mt-8">
-                  <Link href="/api/quote" passHref>
+                  <Link href="/quote" passHref>
                     <Button>Get Your Business Quote</Button>
                   </Link>
                 </div>
@@ -212,7 +212,7 @@ const BOPInsurancePage: React.FC = () => {
           </div>
 
           <div className="mt-12 text-center">
-            <Link href="/api/quote" passHref>
+            <Link href="/quote" passHref>
               <Button size="lg">Get Your Business Quote</Button>
             </Link>
           </div>
@@ -264,7 +264,7 @@ const BOPInsurancePage: React.FC = () => {
             Get a customized BOP insurance quote tailored to your business needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/api/quote" passHref>
+            <Link href="/quote" passHref>
               <Button variant="primary" size="lg" className="bg-white text-primary-700 hover:bg-neutral-100">
                 Get Your Business Quote
                 <ArrowRight className="ml-2 w-5 h-5" />

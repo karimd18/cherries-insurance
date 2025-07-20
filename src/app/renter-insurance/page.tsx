@@ -98,7 +98,7 @@ const RenterInsurancePage: React.FC = () => {
         image="https://i.ibb.co/VYGq7hK9/Background-Photo-Renters-Insurance.png"
         imageAlt="Cozy, sunlit apartment interior with stylish furniture"
         primaryButtonText="Get Your Renters Quote"
-        primaryButtonLink="/api/quote"
+        primaryButtonLink="/quote"
         showTrustBadges
         trustBadges={[
           'BBB Accredited',
@@ -178,7 +178,7 @@ const RenterInsurancePage: React.FC = () => {
           </p>
 
           <div className="mt-8 text-center">
-            <Link href="/api/quote" passHref>
+            <Link href="/quote" passHref>
               <Button size="lg">Get Your Renters Quote</Button>
             </Link>
           </div>
@@ -245,7 +245,7 @@ const RenterInsurancePage: React.FC = () => {
               ))}
 
               <div className="mt-8 flex gap-4">
-                <Link href="/api/quote" passHref>
+                <Link href="/quote" passHref>
                   <Button>Get Your Renters Quote</Button>
                 </Link>
                 <Link href="/contact" passHref>
@@ -316,7 +316,7 @@ const RenterInsurancePage: React.FC = () => {
             Start with a fast, personalized quote. No calls, no pressure.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/api/quote" passHref>
+            <Link href="/quote" passHref>
               <Button
                 variant="primary"
                 size="lg"

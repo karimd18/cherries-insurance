@@ -97,7 +97,7 @@ const AutoInsurancePage: React.FC = () => {
         ]}
         imageAlt="Driver’s seat view with hands on the wheel and car interior."
         primaryButtonText="Get Your Auto Quote"
-        primaryButtonLink="/api/quote"
+        primaryButtonLink="/quote"
         showTrustBadges={true}
         trustBadges={[
           'BBB Accredited',
@@ -152,7 +152,7 @@ const AutoInsurancePage: React.FC = () => {
             <p className="text-neutral-600 mb-6">
               Curious what your rate might be? Let’s get you a quick quote.
             </p>
-            <Link href="/api/quote" passHref>
+            <Link href="/quote" passHref>
               <Button size="lg">Get Your Auto Quote</Button>
             </Link>
           </div>
@@ -187,7 +187,7 @@ const AutoInsurancePage: React.FC = () => {
           </div>
 
           <div className="mt-8 flex gap-4">
-            <Link href="/api/quote" passHref>
+            <Link href="/quote" passHref>
               <Button>Get Your Auto Quote</Button>
             </Link>
             <Link href="/contact" passHref>
@@ -248,7 +248,7 @@ const AutoInsurancePage: React.FC = () => {
             Start with a quick quote. No calls, no pressure.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/api/quote" passHref>
+            <Link href="/quote" passHref>
               <Button
                 variant="primary"
                 size="lg"

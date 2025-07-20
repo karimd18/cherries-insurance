@@ -98,7 +98,7 @@ const HomeInsurancePage: React.FC = () => {
         image="https://i.ibb.co/93225m8f/Background-Photo-Home-Insurance.png"
         imageAlt="Modern family home with kids and dog seen through the window at sunset"
         primaryButtonText="Get Your Home Quote"
-        primaryButtonLink="/api/quote"
+        primaryButtonLink="/quote"
         showTrustBadges
         trustBadges={[
           'BBB Accredited',
@@ -154,7 +154,7 @@ const HomeInsurancePage: React.FC = () => {
           </p>
 
           <div className="mt-8 text-center">
-            <Link href="/api/quote" passHref>
+            <Link href="/quote" passHref>
               <Button size="lg">Get Your Home Quote</Button>
             </Link>
           </div>
@@ -199,7 +199,7 @@ const HomeInsurancePage: React.FC = () => {
               </div>
 
               <div className="mt-8 flex gap-4">
-                <Link href="/api/quote" passHref>
+                <Link href="/quote" passHref>
                   <Button>Get Your Home Quote</Button>
                 </Link>
                 <Link href="/contact" passHref>
@@ -259,7 +259,7 @@ const HomeInsurancePage: React.FC = () => {
             Get a personalized quote in minutes. No calls, no pressure.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/api/quote" passHref>
+            <Link href="/quote" passHref>
               <Button
                 variant="primary"
                 size="lg"
