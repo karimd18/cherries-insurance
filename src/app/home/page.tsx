@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Shield,
   Home,
@@ -14,14 +15,8 @@ import {
   CheckCircle,
   Award,
   ArrowRight,
-  Star,
   Bike,
   Anchor,
-  Facebook,
-  Instagram,
-  X as XIcon,
-  Youtube,
-  Linkedin,
 } from "lucide-react";
 
 import Hero from "@/components/ui/Hero";
@@ -31,7 +26,7 @@ import SectionTitle from "@/components/ui/SectionTitle";
 import FeatureCard from "@/components/ui/FeatureCard";
 
 export default function HomePage() {
-  const [featuresRef, featuresInView] = useInView({
+  const [featuresRef] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
@@ -46,7 +41,7 @@ export default function HomePage() {
         imageAlt="Downtown Boston street view with historic brownstone buildings and modern skyscrapers under a clear blue sky"
         primaryButtonText="Get a Free Quote"
         primaryButtonLink="/quote"
-        showTrustBadges={true}
+        showTrustBadges
         trustBadges={[
           "BBB Accredited",
           "Partnered with A-Rated Carriers",
@@ -223,7 +218,6 @@ export default function HomePage() {
               <SectionTitle
                 title="Select Your Coverage Type"
                 subtitle="Choose a coverage to get started. It only takes a minute."
-                centered={false}
               />
               <div className="grid grid-cols-3 gap-4 mt-6">
                 {[
@@ -286,42 +280,42 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                icon: <Shield className="w-6 h=6" />,
+                icon: <Shield className="w-6 h-6" />,
                 title: "Simple, Honest, Hassle-Free",
                 description:
                   "We simplify your insurance journey—no fluff, no pressure, no confusion.",
                 delay: 0,
               },
               {
-                icon: <Award className="w-6 h=6" />,
+                icon: <Award className="w-6 h-6" />,
                 title: "Transparent & Respectful",
                 description:
                   "We value your time, protect your data, and give you full control.",
                 delay: 1,
               },
               {
-                icon: <Clock className="w-6 h=6" />,
+                icon: <Clock className="w-6 h-6" />,
                 title: "Local Expertise, National Vision",
                 description:
                   "Proudly built in Massachusetts—with plans to grow where you're going.",
                 delay: 2,
               },
               {
-                icon: <Users className="w-6 h=6" />,
+                icon: <Users className="w-6 h-6" />,
                 title: "Cherry-picked Coverage",
                 description:
                   "We match you with policies that fit—no upselling, no shortcuts.",
                 delay: 3,
               },
               {
-                icon: <CheckCircle className="w-6 h=6" />,
+                icon: <CheckCircle className="w-6 h-6" />,
                 title: "Privacy Comes First",
                 description:
                   "Your information stays private. No cold calls. No third-party selling.",
                 delay: 4,
               },
               {
-                icon: <Shield className="w-6 h=6" />,
+                icon: <Shield className="w-6 h-6" />,
                 title: "We Cover What Matters",
                 description:
                   "Whether it's your home, car, or business, we help protect what means the most.",
@@ -410,11 +404,14 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="group bg-white p-6 rounded-xl shadow-sm hover:shadow-lg hover:scale-105 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
               >
-                <img
-                  src={logo}
-                  alt={alt}
-                  className="mx-auto h-12 w-auto object-contain"
-                />
+                <div className="relative mx-auto h-12 w-auto">
+                  <Image
+                    src={logo}
+                    alt={alt}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
                 <span className="mt-3 block text-sm font-medium text-neutral-700 group-hover:text-primary-700">
                   {name}
                 </span>

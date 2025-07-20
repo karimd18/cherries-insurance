@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import {
@@ -9,7 +10,6 @@ import {
   DollarSign,
   UserCheck,
   Wrench,
-  AlertTriangle,
   Check,
   ArrowRight,
   Waves
@@ -43,12 +43,42 @@ const YachtInsurancePage: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { icon: <Anchor className="w-6 h-6" />, title: 'Hull & Machinery', description: "Covers physical damage to your yacht's hull, engine, and onboard equipment." },
-              { icon: <Waves className="w-6 h-6" />, title: 'Weather & Storm Damage', description: 'Protection against damage from storms, hurricanes, and severe weather conditions.' },
-              { icon: <UserCheck className="w-6 h-6" />, title: 'Liability Protection', description: 'Covers bodily injury and property damage claims against you while operating your yacht.' },
-              { icon: <Wrench className="w-6 h-6" />, title: 'Emergency Towing', description: "24/7 emergency towing and assistance services when you're on the water." },
-              { icon: <DollarSign className="w-6 h-6" />, title: 'Personal Effects', description: 'Coverage for personal belongings, electronics, and equipment aboard your yacht.' },
-              { icon: <ShieldCheck className="w-6 h-6" />, title: 'Marina Coverage', description: 'Protection while your yacht is docked at marinas and during storage.' },
+              {
+                icon: <Anchor className="w-6 h-6" />,
+                title: 'Hull & Machinery',
+                description:
+                  "Covers physical damage to your yacht's hull, engine, and onboard equipment.",
+              },
+              {
+                icon: <Waves className="w-6 h-6" />,
+                title: 'Weather & Storm Damage',
+                description:
+                  'Protection against damage from storms, hurricanes, and severe weather conditions.',
+              },
+              {
+                icon: <UserCheck className="w-6 h-6" />,
+                title: 'Liability Protection',
+                description:
+                  'Covers bodily injury and property damage claims against you while operating your yacht.',
+              },
+              {
+                icon: <Wrench className="w-6 h-6" />,
+                title: 'Emergency Towing',
+                description:
+                  "24/7 emergency towing and assistance services when you're on the water.",
+              },
+              {
+                icon: <DollarSign className="w-6 h-6" />,
+                title: 'Personal Effects',
+                description:
+                  'Coverage for personal belongings, electronics, and equipment aboard your yacht.',
+              },
+              {
+                icon: <ShieldCheck className="w-6 h-6" />,
+                title: 'Marina Coverage',
+                description:
+                  'Protection while your yacht is docked at marinas and during storage.',
+              },
             ].map(({ icon, title, description }) => (
               <CoverageCard
                 key={title}
@@ -71,11 +101,12 @@ const YachtInsurancePage: React.FC = () => {
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <img
+            <div className="relative w-full h-[400px]">
+              <Image
                 src="https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                 alt="Luxury yacht on water"
-                className="rounded-xl shadow-lg w-full h-auto object-cover"
+                fill
+                className="rounded-xl shadow-lg object-cover"
               />
             </div>
 
@@ -83,20 +114,24 @@ const YachtInsurancePage: React.FC = () => {
               {[
                 {
                   title: 'Worldwide Coverage',
-                  description: 'Protection wherever your yacht takes you, with international coverage options.'
+                  description:
+                    'Protection wherever your yacht takes you, with international coverage options.',
                 },
                 {
                   title: 'Agreed Value Coverage',
-                  description: 'No depreciation—get the full agreed value of your yacht in case of total loss.'
+                  description:
+                    'No depreciation—get the full agreed value of your yacht in case of total loss.',
                 },
                 {
                   title: 'Expert Marine Adjusters',
-                  description: 'Specialized claims adjusters who understand yachts and marine environments.'
+                  description:
+                    'Specialized claims adjusters who understand yachts and marine environments.',
                 },
                 {
                   title: 'Marina-Ready Coverage',
-                  description: 'Comprehensive protection whether you’re cruising or docked at your favorite marina.'
-                }
+                  description:
+                    'Comprehensive protection whether you’re cruising or docked at your favorite marina.',
+                },
               ].map(({ title, description }) => (
                 <BenefitItem key={title} title={title} description={description} />
               ))}
@@ -118,7 +153,8 @@ const YachtInsurancePage: React.FC = () => {
             Ready to protect your yacht?
           </h2>
           <p className="text-white/90 text-xl mb-8 max-w-2xl mx-auto">
-            Get premium yacht insurance coverage designed for discerning yacht owners.
+            Get premium yacht insurance coverage designed for discerning yacht
+            owners.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/quote" passHref>
@@ -154,7 +190,11 @@ type CoverageCardProps = {
   title: string;
   description: string;
 };
-const CoverageCard: React.FC<CoverageCardProps> = ({ icon, title, description }) => {
+const CoverageCard: React.FC<CoverageCardProps> = ({
+  icon,
+  title,
+  description,
+}) => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
   return (
     <motion.div
@@ -177,7 +217,10 @@ type BenefitItemProps = {
   title: string;
   description: string;
 };
-const BenefitItem: React.FC<BenefitItemProps> = ({ title, description }) => {
+const BenefitItem: React.FC<BenefitItemProps> = ({
+  title,
+  description,
+}) => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
   return (
     <motion.div
@@ -201,3 +244,4 @@ const BenefitItem: React.FC<BenefitItemProps> = ({ title, description }) => {
 };
 
 export default YachtInsurancePage;
+  

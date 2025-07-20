@@ -1,9 +1,11 @@
 'use client'
 
-import Layout from '@/components/layout/Layout'
-import './global.css'
-import React from 'react'
-import Head from 'next/head'
+import React from 'react';
+import Layout from '@/components/layout/Layout';
+import './global.css';
+import Head from 'next/head';
+import Script from 'next/script';
+import Image from 'next/image';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -60,21 +62,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         `}
         </script>
 
-        {/* Google Analytics & Ads (replace IDs) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXXX"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config','G-XXXXXXXXXX');
-          gtag('config','AW-XXXXXXXXXX');
-        `,
-          }}
-        />
-
         {/* TikTok Pixel */}
         <script
           dangerouslySetInnerHTML={{
@@ -102,18 +89,39 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
         <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: 'none' }}
-            src="https://www.facebook.com/tr?id=726456896432889&ev=PageView&noscript=1"
-          />
+          <div style={{ display: 'none' }}>
+            <Image
+              src="https://www.facebook.com/tr?id=726456896432889&ev=PageView&noscript=1"
+              alt=""
+              width={1}
+              height={1}
+            />
+          </div>
         </noscript>
       </Head>
+
+      {/* Google Analytics via next/script */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+        strategy="afterInteractive"
+      />
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXXX"
+        strategy="afterInteractive"
+      />
+      <Script id="gtag-config" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config','G-XXXXXXXXXX');
+          gtag('config','AW-XXXXXXXXXX');
+        `}
+      </Script>
 
       <body>
         <Layout>{children}</Layout>
       </body>
     </html>
-  )
+  );
 }

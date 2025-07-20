@@ -33,14 +33,16 @@ const Testimonial: React.FC<TestimonialProps> = ({
       transition={{ duration: 0.5 }}
     >
       {/* Quote Symbol */}
-      <div className="text-primary-500 text-5xl font-serif absolute -top-4 left-6">"</div>
+      <div className="text-primary-500 text-5xl font-serif absolute -top-4 left-6">
+        &ldquo;
+      </div>
       
       {/* Rating */}
       <div className="flex mb-4">
-        {[...Array(rating)].map((_, i) => (
+        {Array.from({ length: rating }).map((_, i) => (
           <Star key={i} className="w-5 h-5 text-amber-400 fill-current" />
         ))}
-        {[...Array(5 - rating)].map((_, i) => (
+        {Array.from({ length: 5 - rating }).map((_, i) => (
           <Star key={i + rating} className="w-5 h-5 text-neutral-300" />
         ))}
       </div>

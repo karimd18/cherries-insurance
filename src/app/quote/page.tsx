@@ -1,8 +1,9 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect } from "react";
-import Head from "next/head";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 import {
   Shield,
   X,
@@ -11,23 +12,22 @@ import {
   Building,
   Users,
   Bike,
-} from "lucide-react";
-import Link from "next/link";
+} from 'lucide-react';
+import Link from 'next/link';
 
-import Hero from "@/components/ui/Hero";
-import SectionTitle from "@/components/ui/SectionTitle";
-import Button from "@/components/ui/Button";
+import Hero from '@/components/ui/Hero';
+import SectionTitle from '@/components/ui/SectionTitle';
 
 export default function QuotePage() {
   const [showPopup, setShowPopup] = useState(true);
   const [seconds, setSeconds] = useState(20);
 
-  // 1. Countdown timer for popup
+  // Countdown timer for popup
   useEffect(() => {
     if (!showPopup) return;
     setSeconds(20);
     const interval = setInterval(() => {
-      setSeconds((prev) => {
+      setSeconds(prev => {
         if (prev <= 1) {
           clearInterval(interval);
           setShowPopup(false);
@@ -39,11 +39,11 @@ export default function QuotePage() {
     return () => clearInterval(interval);
   }, [showPopup]);
 
-  // 2. Disable background scrolling when popup is active
+  // Disable background scrolling when popup is active
   useEffect(() => {
-    document.body.style.overflow = showPopup ? "hidden" : "";
+    document.body.style.overflow = showPopup ? 'hidden' : '';
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = '';
     };
   }, [showPopup]);
 
@@ -69,10 +69,7 @@ export default function QuotePage() {
           property="og:description"
           content="Get a personalized insurance quote online in just a few minutes. Compare options for home, auto, renters, and business coverage — fast, secure, and spam-free."
         />
-        <meta
-          property="og:url"
-          content="https://www.cherriesinsurance.com/quote"
-        />
+        <meta property="og:url" content="https://www.cherriesinsurance.com/quote" />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
@@ -130,24 +127,24 @@ export default function QuotePage() {
               This part of the page isn’t ready yet.
             </p>
             <p className="text-neutral-600 mb-6">
-              Closing in {seconds} second{seconds !== 1 ? "s" : ""}…
+              Closing in {seconds} second{seconds !== 1 ? 's' : ''}…
             </p>
           </motion.div>
         </div>
       )}
 
-      {/* Main content (disabled while popup is active) */}
-      <div className={showPopup ? "pointer-events-none select-none" : ""}>
+      {/* Main Content */}
+      <div className={showPopup ? 'pointer-events-none select-none' : ''}>
         {/* 1. Hero Section */}
         <Hero
           title="Get a Free Insurance Quote"
           subtitle="Quick, easy, and personalized insurance quotes in just a few minutes."
           image="https://i.ibb.co/WvvwDSyK/Background-Photo-Geta-Quote-Page.png"
-          imageAlt="Person using a laptop with an insurance quote form on screen, near a window with a houseplant."
+          imageAlt="Person using a laptop with an insurance quote form"
           primaryButtonText="Get Started"
-          primaryButtonLink="#quote-form" // scrolls down :contentReference[oaicite:5]{index=5}
+          primaryButtonLink="#quote-form"
           secondaryButtonText="Why Us?"
-          secondaryButtonLink="/about" // about page :contentReference[oaicite:6]{index=6}
+          secondaryButtonLink="/about"
           showTrustBadges={false}
         />
 
@@ -158,7 +155,7 @@ export default function QuotePage() {
               {/* Left: Steps */}
               <div>
                 <SectionTitle
-                  title="Insurance, Uncomplicated" // :contentReference[oaicite:7]{index=7}
+                  title="Insurance, Uncomplicated"
                   subtitle="Get your personalized insurance quote in just a few easy steps."
                 />
                 <p className="text-neutral-700 mb-6">
@@ -188,7 +185,7 @@ export default function QuotePage() {
                   <QuoteStep
                     number={4}
                     title="Finalize Coverage"
-                    description="We’ll help you review your options, make adjustments if needed, and finalize your policy with a licensed agent."
+                    description="We’ll help you review and finalize your policy with a licensed agent."
                   />
                 </ul>
               </div>
@@ -199,44 +196,39 @@ export default function QuotePage() {
                   title="Start Your Quote Online"
                   subtitle="Pick the coverage you need. We’ll guide you from there."
                 />
-
                 <div className="mt-6 grid grid-cols-2 md:grid-cols-3 gap-6">
                   {[
                     {
                       icon: <Car className="w-6 h-6" />,
-                      label: "Auto Insurance",
-                      href: "/auto-insurance",
+                      label: 'Auto Insurance',
+                      href: '/auto-insurance',
                     },
                     {
                       icon: <HomeIcon className="w-6 h-6" />,
-                      label: "Home Insurance",
-                      href: "/home-insurance",
+                      label: 'Home Insurance',
+                      href: '/home-insurance',
                     },
                     {
                       icon: <Users className="w-6 h-6" />,
-                      label: "Business Insurance",
-                      href: "/bop-insurance",
+                      label: 'Business Insurance',
+                      href: '/bop-insurance',
                     },
                     {
                       icon: <Building className="w-6 h-6" />,
-                      label: "Renters Insurance",
-                      href: "/renter-insurance",
+                      label: 'Renters Insurance',
+                      href: '/renter-insurance',
                     },
                     {
                       icon: <Bike className="w-6 h-6" />,
-                      label: "Motorcycle Insurance",
-                      href: "/motorcycle-insurance",
+                      label: 'Motorcycle Insurance',
+                      href: '/motorcycle-insurance',
                     },
                   ].map(({ icon, label, href }) => (
                     <Link
                       key={href}
                       href={href}
                       passHref
-                      className="flex flex-col items-center p-4 
-            bg-white rounded-xl shadow hover:shadow-lg 
-            ring-1 ring-neutral-200 hover:ring-primary-300 
-            transition 
-            focus:outline-none focus:ring-2 focus:ring-primary-500"
+                      className="flex flex-col items-center p-4 bg-white rounded-xl shadow hover:shadow-lg ring-1 ring-neutral-200 hover:ring-primary-300 transition focus:outline-none focus:ring-2 focus:ring-primary-500"
                     >
                       <div className="p-3 rounded-lg bg-primary-50 mb-2">
                         {icon}
@@ -263,19 +255,19 @@ export default function QuotePage() {
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-8">
               {[
                 {
-                  name: "BBB",
-                  logo: "https://i.ibb.co/MDbcb6g6/BBB-Logo.png",
-                  url: "#",
+                  name: 'BBB',
+                  logo: 'https://i.ibb.co/MDbcb6g6/BBB-Logo.png',
+                  url: '#',
                 },
                 {
-                  name: "Trustpilot",
-                  logo: "https://i.ibb.co/Y7NHSTfL/Trust-Pilot-Logo.png",
-                  url: "#",
+                  name: 'Trustpilot',
+                  logo: 'https://i.ibb.co/Y7NHSTfL/Trust-Pilot-Logo.png',
+                  url: '#',
                 },
                 {
-                  name: "Google Reviews",
-                  logo: "https://i.ibb.co/bMwHbpMj/Google-Reviews-Logo.png",
-                  url: "#",
+                  name: 'Google Reviews',
+                  logo: 'https://i.ibb.co/bMwHbpMj/Google-Reviews-Logo.png',
+                  url: '#',
                 },
               ].map(({ name, logo, url }) => (
                 <a
@@ -285,11 +277,14 @@ export default function QuotePage() {
                   rel="noopener noreferrer"
                   className="group bg-white p-6 rounded-xl shadow-sm hover:shadow-lg hover:scale-105 transition-transform duration-200"
                 >
-                  <img
-                    src={logo}
-                    alt={`${name} logo`}
-                    className="mx-auto h-12 w-auto object-contain"
-                  />
+                  <div className="relative mx-auto h-12 w-auto">
+                    <Image
+                      src={logo}
+                      alt={`${name} logo`}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
                   <span className="mt-3 block text-sm font-medium text-neutral-700 group-hover:text-primary-700">
                     {name}
                   </span>

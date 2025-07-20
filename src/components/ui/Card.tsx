@@ -1,4 +1,7 @@
+'use client'
+
 import React from 'react';
+import Image from 'next/image';
 
 type CardProps = {
   children: React.ReactNode;
@@ -6,17 +9,19 @@ type CardProps = {
   hoverEffect?: boolean;
 };
 
-const Card: React.FC<CardProps> = ({ 
-  children, 
+const Card: React.FC<CardProps> = ({
+  children,
   className = '',
   hoverEffect = true,
 }) => {
   return (
-    <div className={`
+    <div
+      className={`
       bg-white rounded-xl shadow-md overflow-hidden
       ${hoverEffect ? 'hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1' : ''}
       ${className}
-    `}>
+    `}
+    >
       {children}
     </div>
   );
@@ -28,10 +33,19 @@ type CardImageProps = {
   className?: string;
 };
 
-export const CardImage: React.FC<CardImageProps> = ({ src, alt, className = '' }) => {
+export const CardImage: React.FC<CardImageProps> = ({
+  src,
+  alt,
+  className = '',
+}) => {
   return (
-    <div className={`w-full ${className}`}>
-      <img src={src} alt={alt} className="w-full h-full object-cover" />
+    <div className={`relative w-full ${className}`}>
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className="object-cover"
+      />
     </div>
   );
 };
@@ -41,12 +55,11 @@ type CardContentProps = {
   className?: string;
 };
 
-export const CardContent: React.FC<CardContentProps> = ({ children, className = '' }) => {
-  return (
-    <div className={`p-6 ${className}`}>
-      {children}
-    </div>
-  );
+export const CardContent: React.FC<CardContentProps> = ({
+  children,
+  className = '',
+}) => {
+  return <div className={`p-6 ${className}`}>{children}</div>;
 };
 
 type CardTitleProps = {
@@ -54,12 +67,11 @@ type CardTitleProps = {
   className?: string;
 };
 
-export const CardTitle: React.FC<CardTitleProps> = ({ children, className = '' }) => {
-  return (
-    <h3 className={`text-xl font-bold mb-2 ${className}`}>
-      {children}
-    </h3>
-  );
+export const CardTitle: React.FC<CardTitleProps> = ({
+  children,
+  className = '',
+}) => {
+  return <h3 className={`text-xl font-bold mb-2 ${className}`}>{children}</h3>;
 };
 
 export default Card;

@@ -8,7 +8,7 @@ const PrivacyPolicyPage: React.FC = () => {
       <h1 className="text-3xl font-bold mb-4">Privacy Policy</h1>
       <p className="mb-6"><strong>Effective Date:</strong> July 19, 2025</p>
       <p className="mb-8">
-        Cherries Insurance Agency LLC ("we", "us", or "our") is committed to protecting your personal information. This Privacy Policy outlines how we collect, use, disclose, and safeguard your data when you visit our website or use our services.
+        Cherries Insurance Agency LLC (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) is committed to protecting your personal information. This Privacy Policy outlines how we collect, use, disclose, and safeguard your data when you visit our website or use our services.
       </p>
 
       <section className="mb-6">
@@ -34,7 +34,7 @@ const PrivacyPolicyPage: React.FC = () => {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-2xl font-semibold mb-2">3. Lead Follow‑Up</h2>
+        <h2 className="text-2xl font-semibold mb-2">3. Lead Follow-Up</h2>
         <p className="mb-4">
           If you submit your information to request a quote, we may contact you via email or phone to follow up on your inquiry, assist with your application, or remind you about your options. You can opt out of further communication at any time.
         </p>

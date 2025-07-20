@@ -2,19 +2,10 @@
 
 import React from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import {
-  Briefcase,
-  ShieldCheck,
-  Building,
-  Users,
-  DollarSign,
-  AlertTriangle,
-  CheckCircle,
-  ArrowRight,
-  Truck
-} from 'lucide-react';
+import { Briefcase, ShieldCheck, Building, Users, DollarSign, CheckCircle, ArrowRight, Truck } from 'lucide-react';
 import Link from 'next/link';
 
 import Hero from '@/components/ui/Hero';
@@ -23,31 +14,49 @@ import Button from '@/components/ui/Button';
 import Card, { CardContent, CardTitle } from '@/components/ui/Card';
 
 const BOPInsurancePage: React.FC = () => {
-  const [covRef, covInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [whyRef, whyInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [covRef] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [whyRef] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
     <>
       {/* SEO & Meta Tags */}
       <Head>
-        <title>business owners policy insurance | Cherries Insurance</title>
+        <title>Business Owners Policy Insurance | Cherries Insurance</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="keywords" content="business owners policy insurance quote" />
-        <meta name="description" content="Simplify small business insurance with Cherries Insurance. Compare BOP coverage options including property, liability, and business interruption—all tailored to your operations in Massachusetts." />
+        <meta
+          name="description"
+          content="Simplify small business insurance with Cherries Insurance. Compare BOP coverage options including property, liability, and business interruption—all tailored to your operations in Massachusetts."
+        />
         <link rel="canonical" href="https://www.cherriesinsurance.com/bop-insurance" />
 
         {/* Open Graph */}
-        <meta property="og:title" content="business owners policy insurance | Cherries Insurance" />
-        <meta property="og:description" content="Simplify small business insurance with Cherries Insurance. Compare BOP coverage options including property, liability, and business interruption—all tailored to your operations in Massachusetts." />
+        <meta property="og:title" content="Business Owners Policy Insurance | Cherries Insurance" />
+        <meta
+          property="og:description"
+          content="Simplify small business insurance with Cherries Insurance. Compare BOP coverage options including property, liability, and business interruption—all tailored to your operations in Massachusetts."
+        />
         <meta property="og:url" content="https://www.cherriesinsurance.com/bop-insurance" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://i.ibb.co/B2vfRqH5/Background-Photo-Business-Insurance.png" />
+        <meta
+          property="og:image"
+          content="https://i.ibb.co/B2vfRqH5/Background-Photo-Business-Insurance.png"
+        />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="business owners policy insurance | Cherries Insurance" />
-        <meta name="twitter:description" content="Simplify small business insurance with Cherries Insurance. Compare BOP coverage options including property, liability, and business interruption—all tailored to your operations in Massachusetts." />
-        <meta name="twitter:image" content="https://i.ibb.co/B2vfRqH5/Background-Photo-Business-Insurance.png" />
+        <meta
+          name="twitter:title"
+          content="Business Owners Policy Insurance | Cherries Insurance"
+        />
+        <meta
+          name="twitter:description"
+          content="Simplify small business insurance with Cherries Insurance. Compare BOP coverage options including property, liability, and business interruption—all tailored to your operations in Massachusetts."
+        />
+        <meta
+          name="twitter:image"
+          content="https://i.ibb.co/B2vfRqH5/Background-Photo-Business-Insurance.png"
+        />
 
         {/* Structured Data */}
         <script type="application/ld+json">{`{
@@ -57,7 +66,7 @@ const BOPInsurancePage: React.FC = () => {
           "url": "https://www.cherriesinsurance.com/bop-insurance",
           "logo": "/logo.png",
           "image": "https://i.ibb.co/B2vfRqH5/Background-Photo-Business-Insurance.png",
-          "description": "Simplify small business insurance with Cherries Insurance. Compare BOP coverage options including property, liability, and business interruption — all tailored to your operations in Massachusetts.",
+          "description": "Simplify small business insurance with Cherries Insurance. Compare BOP coverage options including property, liability, and business interruption—all tailored to your operations in Massachusetts.",
           "areaServed": "US"
         }`}</script>
       </Head>
@@ -70,7 +79,7 @@ const BOPInsurancePage: React.FC = () => {
         imageAlt="Modern commercial building exterior with clear signage, symbolizing small business coverage"
         primaryButtonText="Get Your Business Quote"
         primaryButtonLink="/api/quote"
-        showTrustBadges={true}
+        showTrustBadges
         trustBadges={[
           'BBB Accredited',
           'Partnered with A-Rated Carriers',
@@ -110,11 +119,12 @@ const BOPInsurancePage: React.FC = () => {
               </div>
             </div>
 
-            <div>
-              <img
+            <div className="relative w-full h-[400px] lg:h-[500px]">
+              <Image
                 src="https://i.ibb.co/sdTmzjZg/Business-Insurance-Section02.png"
                 alt="Business insurance illustration"
-                className="rounded-xl shadow-lg w-full h-auto object-cover"
+                fill
+                className="rounded-xl shadow-lg object-cover"
               />
             </div>
           </div>
@@ -227,7 +237,7 @@ const BOPInsurancePage: React.FC = () => {
               { icon: <Building className="w-6 h-6" />, title: 'Healthcare Practices' },
               { icon: <Building className="w-6 h-6" />, title: 'Real Estate' },
               { icon: <Briefcase className="w-6 h-6" />, title: 'Technology Firms' },
-              { icon: <ShieldCheck className="w-6 h-6" />, title: 'Many More' },
+              { icon: <ShieldCheck className="w-6 h-6" />, title: 'Many More' }
             ].map(({ icon, title }) => (
               <IndustryCard key={title} icon={icon} title={title} />
             ))}
@@ -297,24 +307,6 @@ const IndustryCard: React.FC<IndustryCardProps> = ({ icon, title }) => {
         {icon}
       </div>
       <h3 className="font-semibold">{title}</h3>
-    </motion.div>
-  );
-};
-
-// Helper: Additional coverage
-type AdditionalCoverageCardProps = { title: string; description: string };
-const AdditionalCoverageCard: React.FC<AdditionalCoverageCardProps> = ({ title, description }) => {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  return (
-    <motion.div
-      ref={ref}
-      className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300"
-      initial={{ opacity: 0, y: 20 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5 }}
-    >
-      <h3 className="text-xl font-bold mb-3 gradient-text">{title}</h3>
-      <p className="text-neutral-600">{description}</p>
     </motion.div>
   );
 };

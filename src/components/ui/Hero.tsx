@@ -1,6 +1,6 @@
-"use client";
+'use client'
 
-import Reac, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Shield } from "lucide-react";
@@ -10,7 +10,6 @@ interface HeroProps {
   title: string;
   subtitle: string;
   image: string | string[];
-  imageAlt?: string;
   primaryButtonText?: string;
   primaryButtonLink?: string;
   secondaryButtonText?: string;
@@ -18,6 +17,7 @@ interface HeroProps {
   showTrustBadges?: boolean;
   trustBadges?: string[];
   slideIntervalMs?: number;
+  imageAlt?: string;
 }
 
 const Hero: React.FC<HeroProps> = ({
@@ -46,13 +46,17 @@ const Hero: React.FC<HeroProps> = ({
   useEffect(() => {
     if (images.length < 2) return;
     const timer = setInterval(() => {
-      setCurrent((i) => (i + 1) % images.length);
+      setCurrent(i => (i + 1) % images.length);
     }, slideIntervalMs);
     return () => clearInterval(timer);
   }, [images, slideIntervalMs]);
 
   return (
-    <div className="relative w-full min-h-[600px] overflow-hidden">
+    <div
+      className="relative w-full min-h-[600px] overflow-hidden"
+      role="img"
+      aria-label={imageAlt}
+    >
       {/* slide container */}
       <AnimatePresence>
         {images.map((src, idx) =>
@@ -98,7 +102,7 @@ const Hero: React.FC<HeroProps> = ({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <Link href={primaryButtonLink}>
+          <Link href={primaryButtonLink} passHref>
             <Button variant="primary" className="font-semibold">
               {primaryButtonText}
               <ArrowRight className="ml-2 w-4 h-4" />
@@ -106,7 +110,7 @@ const Hero: React.FC<HeroProps> = ({
           </Link>
 
           {secondaryButtonLink && secondaryButtonText && (
-            <Link href={secondaryButtonLink}>
+            <Link href={secondaryButtonLink} passHref>
               <Button
                 variant="outline"
                 className="bg-white/10 border-white text-white hover:bg-white/20"

@@ -1,26 +1,38 @@
 import React, { useState } from 'react';
 import Button from './Button';
 
+type FormData = {
+  name: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+  method: string;
+};
+
 const ContactForm: React.FC = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     phone: '',
     subject: '',
     message: '',
+    method: '',
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formStatus, setFormStatus] = useState<null | 'success' | 'error'>(null);
   
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     
@@ -36,6 +48,7 @@ const ContactForm: React.FC = () => {
         phone: '',
         subject: '',
         message: '',
+        method: '',
       });
       
       // Reset status after a delay
@@ -49,7 +62,10 @@ const ContactForm: React.FC = () => {
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-neutral-700 mb-1">
+          <label
+            htmlFor="name"
+            className="block text-sm font-medium text-neutral-700 mb-1"
+          >
             Full Name <span className="text-primary-600">*</span>
           </label>
           <input
@@ -63,7 +79,10 @@ const ContactForm: React.FC = () => {
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-neutral-700 mb-1">
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-neutral-700 mb-1"
+          >
             Email Address <span className="text-primary-600">*</span>
           </label>
           <input
@@ -80,7 +99,10 @@ const ContactForm: React.FC = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-neutral-700 mb-1">
+          <label
+            htmlFor="phone"
+            className="block text-sm font-medium text-neutral-700 mb-1"
+          >
             Phone Number
           </label>
           <input
@@ -93,7 +115,10 @@ const ContactForm: React.FC = () => {
           />
         </div>
         <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-neutral-700 mb-1">
+          <label
+            htmlFor="subject"
+            className="block text-sm font-medium text-neutral-700 mb-1"
+          >
             What do you need help with? <span className="text-primary-600">*</span>
           </label>
           <select
@@ -113,13 +138,16 @@ const ContactForm: React.FC = () => {
           </select>
         </div>
         <div>
-          <label htmlFor="prefferedMethod" className="block text-sm font-medium text-neutral-700 mb-1">
-           How would you like us to contact you?
+          <label
+            htmlFor="method"
+            className="block text-sm font-medium text-neutral-700 mb-1"
+          >
+            How would you like us to contact you?
           </label>
           <select
-            id="prefferedMethod"
-            name="Preffered Method of communication"
-            value={(formData as any).method}
+            id="method"
+            name="method"
+            value={formData.method}
             onChange={handleChange}
             className="w-full px-4 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
           >
@@ -131,7 +159,10 @@ const ContactForm: React.FC = () => {
       </div>
       
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-neutral-700 mb-1">
+        <label
+          htmlFor="message"
+          className="block text-sm font-medium text-neutral-700 mb-1"
+        >
           Message <span className="text-primary-600">*</span>
         </label>
         <textarea
@@ -159,7 +190,7 @@ const ContactForm: React.FC = () => {
       
       {formStatus === 'success' && (
         <div className="p-4 bg-green-50 text-green-700 rounded-md">
-          Your message has been sent successfully. We'll get back to you soon!
+          Your message has been sent successfully. We&apos;ll get back to you soon!
         </div>
       )}
       

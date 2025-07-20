@@ -4,11 +4,18 @@ import { ArrowRight } from 'lucide-react';
 
 type InsuranceType = 'home' | 'auto' | 'renter' | 'business';
 
+interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  zipCode: string;
+}
 
 const QuoteForm: React.FC = () => {
   const [step, setStep] = useState<number>(1);
   const [insuranceType, setInsuranceType] = useState<InsuranceType>('home');
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     firstName: '',
     lastName: '',
     email: '',
@@ -20,7 +27,10 @@ const QuoteForm: React.FC = () => {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleTypeChange = (type: InsuranceType) => {
@@ -30,34 +40,34 @@ const QuoteForm: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (step < 3) {
-      // setStep(step + 1);
-      // off due to quote page maintenance
+      // Next step logic (currently disabled for maintenance)
     } else {
-      // Submit form logic here
-      alert('Thank you for your submission! We will contact you shortly.');
+      // Final submit logic
+      alert("Thank you for your submission! We will contact you shortly.");
     }
   };
 
   return (
     <div className="bg-white rounded-xl shadow-md p-6">
       <h3 className="text-2xl font-bold mb-6">Get a Free Quote</h3>
-      
+
       {step === 1 && (
         <div className="animate-fade-in">
           <p className="mb-6 text-neutral-600">
-            Select the type of insurance you're interested in:
+            Select the type of insurance you&apos;re interested in:
           </p>
           <div className="grid grid-cols-2 gap-4 mb-6">
-            {['home','auto','renter','business'].map((type) => (
+            {(['home', 'auto', 'renter', 'business'] as InsuranceType[]).map((type) => (
               <button
                 key={type}
                 type="button"
-                onClick={() => handleTypeChange(type as InsuranceType)}
-                className={`p-4 border-2 rounded-lg text-center transition-all ${
-                  insuranceType === type
+                onClick={() => handleTypeChange(type)}
+                className={`
+                  p-4 border-2 rounded-lg text-center transition-all
+                  ${insuranceType === type
                     ? 'border-primary-600 bg-primary-50 text-primary-700'
-                    : 'border-neutral-200 hover:border-neutral-300 text-neutral-700'
-                }`}
+                    : 'border-neutral-200 hover:border-neutral-300 text-neutral-700'}
+                `}
               >
                 {type.charAt(0).toUpperCase() + type.slice(1)}
               </button>
@@ -65,23 +75,26 @@ const QuoteForm: React.FC = () => {
           </div>
         </div>
       )}
-      
+
       {step === 2 && (
-        <form className="space-y-4 animate-fade-in">
+        <form className="space-y-4 animate-fade-in" onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
-              { label: 'First Name', name: 'firstName', type: 'text' },
-              { label: 'Last Name', name: 'lastName', type: 'text' }
-            ].map(({ label, name, type }) => (
+              { label: 'First Name', name: 'firstName' },
+              { label: 'Last Name', name: 'lastName' },
+            ].map(({ label, name }) => (
               <div key={name}>
-                <label htmlFor={name} className="block text-sm font-medium text-neutral-700 mb-1">
+                <label
+                  htmlFor={name}
+                  className="block text-sm font-medium text-neutral-700 mb-1"
+                >
                   {label} <span className="text-primary-600">*</span>
                 </label>
                 <input
-                  type={type}
+                  type="text"
                   id={name}
                   name={name}
-                  value={(formData as any)[name]}
+                  value={formData[name as keyof FormData]}
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
@@ -89,16 +102,20 @@ const QuoteForm: React.FC = () => {
               </div>
             ))}
           </div>
-          {['email','phone'].map((field) => (
+          {(['email', 'phone'] as (keyof FormData)[]).map((field) => (
             <div key={field}>
-              <label htmlFor={field} className="block text-sm font-medium text-neutral-700 mb-1">
-                {field.charAt(0).toUpperCase() + field.slice(1)} <span className="text-primary-600">*</span>
+              <label
+                htmlFor={field}
+                className="block text-sm font-medium text-neutral-700 mb-1"
+              >
+                {field.charAt(0).toUpperCase() + field.slice(1)}{' '}
+                <span className="text-primary-600">*</span>
               </label>
               <input
                 type={field}
                 id={field}
                 name={field}
-                value={(formData as any)[field]}
+                value={formData[field]}
                 onChange={handleChange}
                 required
                 className="w-full px-4 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
@@ -107,11 +124,14 @@ const QuoteForm: React.FC = () => {
           ))}
         </form>
       )}
-      
+
       {step === 3 && (
-        <form className="space-y-4 animate-fade-in">
+        <form className="space-y-4 animate-fade-in" onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="zipCode" className="block text-sm font-medium text-neutral-700 mb-1">
+            <label
+              htmlFor="zipCode"
+              className="block text-sm font-medium text-neutral-700 mb-1"
+            >
               Zip Code <span className="text-primary-600">*</span>
             </label>
             <input
@@ -125,11 +145,18 @@ const QuoteForm: React.FC = () => {
             />
           </div>
           <p className="text-neutral-600 mb-4 pt-4">
-            By submitting, you agree to our <a href="#" className="text-primary-600 hover:underline">Terms</a> and <a href="#" className="text-primary-600 hover:underline">Privacy Policy</a>.
+            By submitting, you agree to our{' '}
+            <a href="#" className="text-primary-600 hover:underline">
+              Terms
+            </a>{' '}
+            and{' '}
+            <a href="#" className="text-primary-600 hover:underline">
+              Privacy Policy
+            </a>.
           </p>
         </form>
       )}
-      
+
       <div className="mt-6 flex justify-between items-center">
         {step > 1 && (
           <button
@@ -147,18 +174,24 @@ const QuoteForm: React.FC = () => {
           </Button>
         </div>
       </div>
-      
+
       <div className="mt-6 flex items-center gap-2">
-        {[1,2,3].map((num) => (
+        {[1, 2, 3].map((num) => (
           <React.Fragment key={num}>
-            <div className={`
+            <div
+              className={`
               w-8 h-8 rounded-full flex items-center justify-center font-medium text-sm
               ${step >= num ? 'bg-primary-600 text-white' : 'bg-neutral-200 text-neutral-600'}
-            `}>
+            `}
+            >
               {num}
             </div>
             {num < 3 && (
-              <div className={`flex-grow h-1 ${step >= num ? 'bg-primary-600' : 'bg-neutral-200'}`}></div>
+              <div
+                className={`flex-grow h-1 ${
+                  step >= num ? 'bg-primary-600' : 'bg-neutral-200'
+                }`}
+              />
             )}
           </React.Fragment>
         ))}

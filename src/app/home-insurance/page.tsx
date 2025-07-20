@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import {
@@ -21,9 +22,9 @@ import SectionTitle from '@/components/ui/SectionTitle';
 import Button from '@/components/ui/Button';
 
 const HomeInsurancePage: React.FC = () => {
-  const [covRef, covInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [whyRef, whyInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [faqRef, faqInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [covRef] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [whyRef] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [faqRef] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
     <>
@@ -32,21 +33,48 @@ const HomeInsurancePage: React.FC = () => {
         <title>Home Insurance Quote | Cherries Insurance</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="keywords" content="home insurance quote" />
-        <meta name="description" content="Get a reliable home insurance quote tailored to your needs. Compare plans from A-rated carriers—100% online with no calls, no spam, and no pressure." />
-        <link rel="canonical" href="https://www.cherriesinsurance.com/home-insurance" />
+        <meta
+          name="description"
+          content="Get a reliable home insurance quote tailored to your needs. Compare plans from A-rated carriers—100% online with no calls, no spam, and no pressure."
+        />
+        <link
+          rel="canonical"
+          href="https://www.cherriesinsurance.com/home-insurance"
+        />
 
         {/* Open Graph */}
-        <meta property="og:title" content="Home Insurance Quote | Cherries Insurance" />
-        <meta property="og:description" content="Get a reliable home insurance quote tailored to your needs. Compare plans from A-rated carriers—100% online with no calls, no spam, and no pressure." />
-        <meta property="og:url" content="https://www.cherriesinsurance.com/home-insurance" />
+        <meta
+          property="og:title"
+          content="Home Insurance Quote | Cherries Insurance"
+        />
+        <meta
+          property="og:description"
+          content="Get a reliable home insurance quote tailored to your needs. Compare plans from A-rated carriers—100% online with no calls, no spam, and no pressure."
+        />
+        <meta
+          property="og:url"
+          content="https://www.cherriesinsurance.com/home-insurance"
+        />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://i.ibb.co/93225m8f/Background-Photo-Home-Insurance.png" />
+        <meta
+          property="og:image"
+          content="https://i.ibb.co/93225m8f/Background-Photo-Home-Insurance.png"
+        />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Home Insurance Quote | Cherries Insurance" />
-        <meta name="twitter:description" content="Compare personalized home insurance plans online—no calls, no spam, no pressure." />
-        <meta name="twitter:image" content="https://i.ibb.co/93225m8f/Background-Photo-Home-Insurance.png" />
+        <meta
+          name="twitter:title"
+          content="Home Insurance Quote | Cherries Insurance"
+        />
+        <meta
+          name="twitter:description"
+          content="Compare personalized home insurance plans online—no calls, no spam, no pressure."
+        />
+        <meta
+          name="twitter:image"
+          content="https://i.ibb.co/93225m8f/Background-Photo-Home-Insurance.png"
+        />
 
         {/* Schema.org JSON-LD */}
         <script type="application/ld+json">
@@ -71,7 +99,7 @@ const HomeInsurancePage: React.FC = () => {
         imageAlt="Modern family home with kids and dog seen through the window at sunset"
         primaryButtonText="Get Your Home Quote"
         primaryButtonLink="/api/quote"
-        showTrustBadges={true}
+        showTrustBadges
         trustBadges={[
           'BBB Accredited',
           'Partnered with A-Rated Carriers',
@@ -137,11 +165,12 @@ const HomeInsurancePage: React.FC = () => {
       <section className="section bg-neutral-50" ref={whyRef}>
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <img
+            <div className="relative w-full h-[400px] lg:h-[500px]">
+              <Image
                 src="https://i.ibb.co/N6ptWH8F/Home-Insurance-Section03.png"
                 alt="Family receiving home insurance support"
-                className="rounded-xl shadow-lg w-full h-auto object-cover"
+                fill
+                className="rounded-xl shadow-lg object-cover"
               />
             </div>
             <div>
@@ -223,17 +252,29 @@ const HomeInsurancePage: React.FC = () => {
       {/* CTA Section */}
       <section className="gradient-bg py-16 md:py-24">
         <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Let’s keep home your safest place.</h2>
-          <p className="text-white/90 text-xl mb-8 max-w-2xl mx-auto">Get a personalized quote in minutes. No calls, no pressure.</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Let’s keep home your safest place.
+          </h2>
+          <p className="text-white/90 text-xl mb-8 max-w-2xl mx-auto">
+            Get a personalized quote in minutes. No calls, no pressure.
+          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/api/quote" passHref>
-              <Button variant="primary" size="lg" className="bg-white text-primary-700 hover:bg-neutral-100">
+              <Button
+                variant="primary"
+                size="lg"
+                className="bg-white text-primary-700 hover:bg-neutral-100"
+              >
                 Get Your Home Quote
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
             <Link href="/contact" passHref>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/20">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-white text-white hover:bg-white/20"
+              >
                 Still have questions?
               </Button>
             </Link>
@@ -244,7 +285,6 @@ const HomeInsurancePage: React.FC = () => {
   );
 };
 
-
 // --- Helper Components ---
 
 type CoverageCardProps = {
@@ -252,7 +292,6 @@ type CoverageCardProps = {
   title: string;
   description: string;
 };
-
 const CoverageCard: React.FC<CoverageCardProps> = ({ icon, title, description }) => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
   return (
@@ -276,7 +315,6 @@ type BenefitItemProps = {
   title: string;
   description: string;
 };
-
 const BenefitItem: React.FC<BenefitItemProps> = ({ title, description }) => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
   return (
@@ -304,7 +342,6 @@ type FaqItemProps = {
   question: string;
   answer: string;
 };
-
 const FaqItem: React.FC<FaqItemProps> = ({ question, answer }) => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
   return (

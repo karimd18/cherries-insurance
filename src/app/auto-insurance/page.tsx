@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import {
@@ -21,9 +22,9 @@ import SectionTitle from '@/components/ui/SectionTitle';
 import Button from '@/components/ui/Button';
 
 const AutoInsurancePage: React.FC = () => {
-  const [covRef, covInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [whyRef, whyInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [faqRef, faqInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [covRef] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [whyRef] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [faqRef] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
     <>
@@ -32,21 +33,45 @@ const AutoInsurancePage: React.FC = () => {
         <title>Auto Insurance Quote Online | Cherries Insurance</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="keywords" content="auto insurance quote" />
-        <meta name="description" content="Get a personalized auto insurance quote in minutes. Compare flexible coverage options and save—no calls, no pressure, just smart coverage." />
+        <meta
+          name="description"
+          content="Get a personalized auto insurance quote in minutes. Compare flexible coverage options and save—no calls, no pressure, just smart coverage."
+        />
         <link rel="canonical" href="https://www.cherriesinsurance.com/auto-insurance" />
 
         {/* Open Graph */}
-        <meta property="og:title" content="Auto Insurance Quote | Cherries Insurance" />
-        <meta property="og:description" content="Get a personalized auto insurance quote in minutes. Compare flexible coverage options and save—no calls, no pressure, just smart coverage." />
-        <meta property="og:url" content="https://www.cherriesinsurance.com/auto-insurance" />
+        <meta
+          property="og:title"
+          content="Auto Insurance Quote | Cherries Insurance"
+        />
+        <meta
+          property="og:description"
+          content="Get a personalized auto insurance quote in minutes. Compare flexible coverage options and save—no calls, no pressure, just smart coverage."
+        />
+        <meta
+          property="og:url"
+          content="https://www.cherriesinsurance.com/auto-insurance"
+        />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/Background_Photo_Auto_Insurance.jpg" />
+        <meta
+          property="og:image"
+          content="https://i.ibb.co/8nBk6s6h/Background-Photo-Auto-Insurance.png"
+        />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Auto Insurance Quote | Cherries Insurance" />
-        <meta name="twitter:description" content="Get a personalized auto insurance quote in minutes. Compare flexible coverage options and save—no calls, no pressure, just smart coverage." />
-        <meta name="twitter:image" content="/Background_Photo_Auto_Insurance.jpg" />
+        <meta
+          name="twitter:title"
+          content="Auto Insurance Quote | Cherries Insurance"
+        />
+        <meta
+          name="twitter:description"
+          content="Get a personalized auto insurance quote in minutes. Compare flexible coverage options and save—no calls, no pressure, just smart coverage."
+        />
+        <meta
+          name="twitter:image"
+          content="https://i.ibb.co/8nBk6s6h/Background-Photo-Auto-Insurance.png"
+        />
 
         {/* Structured Data */}
         <script type="application/ld+json">{`{
@@ -55,7 +80,7 @@ const AutoInsurancePage: React.FC = () => {
           "name": "Cherries Insurance",
           "url": "https://www.cherriesinsurance.com/auto-insurance",
           "logo": "/logo.png",
-          "image": "/Background_Photo_Auto_Insurance.jpg",
+          "image": "https://i.ibb.co/8nBk6s6h/Background-Photo-Auto-Insurance.png",
           "description": "Cherries Insurance helps you find reliable, personalized auto insurance from A-rated carriers. 100% online, no phone calls or pressure.",
           "areaServed": "US"
         }`}</script>
@@ -65,7 +90,11 @@ const AutoInsurancePage: React.FC = () => {
       <Hero
         title="Protection That Moves With You"
         subtitle="Flexible auto coverage tailored to your needs, with honest pricing and no pressure."
-        image={["https://i.ibb.co/8nBk6s6h/Background-Photo-Auto-Insurance.png", "https://i.ibb.co/tMXtKMr3/Background-Photo-Auto-Insurance-01.png", "https://i.ibb.co/nsgDhtmw/Background-Photo-Auto-Insurance-02.png"]}
+        image={[
+          "https://i.ibb.co/8nBk6s6h/Background-Photo-Auto-Insurance.png",
+          "https://i.ibb.co/tMXtKMr3/Background-Photo-Auto-Insurance-01.png",
+          "https://i.ibb.co/nsgDhtmw/Background-Photo-Auto-Insurance-02.png"
+        ]}
         imageAlt="Driver’s seat view with hands on the wheel and car interior."
         primaryButtonText="Get Your Auto Quote"
         primaryButtonLink="/api/quote"
@@ -167,11 +196,14 @@ const AutoInsurancePage: React.FC = () => {
           </div>
 
           <div className="mt-12 text-center">
-            <img
-              src="https://i.ibb.co/GfDpnT4q/Auto-Insurance-Section03.png"
-              alt="Updated auto insurance illustration"
-              className="rounded-xl shadow-lg w-full h-[900px] object-cover"
-            />
+            <div className="relative w-full h-[900px] mx-auto">
+              <Image
+                src="https://i.ibb.co/GfDpnT4q/Auto-Insurance-Section03.png"
+                alt="Updated auto insurance illustration"
+                fill
+                className="rounded-xl shadow-lg object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -293,31 +325,6 @@ const BenefitItem: React.FC<BenefitItemProps> = ({ title, description }) => {
         <h4 className="font-bold text-lg mb-1">{title}</h4>
         <p className="text-neutral-600">{description}</p>
       </div>
-    </motion.div>
-  );
-};
-
-type DiscountCardProps = {
-  title: string;
-  description: string;
-  percentage: string;
-};
-
-const DiscountCard: React.FC<DiscountCardProps> = ({ title, description, percentage }) => {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
-
-  return (
-    <motion.div
-      ref={ref}
-      className="bg-white rounded-xl shadow-md p-6 text-center relative overflow-hidden"
-      initial={{ opacity: 0, y: 20 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-primary-600 to-secondary-600 rounded-full opacity-10"></div>
-      <div className="text-3xl font-bold text-primary-600 mb-3">{percentage}</div>
-      <h3 className="text-lg font-bold mb-2">{title}</h3>
-      <p className="text-neutral-600 text-sm">{description}</p>
     </motion.div>
   );
 };

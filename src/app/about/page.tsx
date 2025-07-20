@@ -2,17 +2,10 @@
 
 import React from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import {
-  Shield,
-  Heart,
-  Users,
-  Award,
-  Target,
-  Check,
-  ArrowRight
-} from 'lucide-react';
+import { Shield, Heart, Award, Target } from 'lucide-react';
 
 import Hero from '@/components/ui/Hero';
 import SectionTitle from '@/components/ui/SectionTitle';
@@ -30,33 +23,48 @@ const AboutPage: React.FC = () => {
         <title>About Cherries Insurance | Our Story, Mission & Values</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="keywords" content="about cherries insurance" />
-        <meta name="description" content="Learn about Cherries Insurance — a modern digital-first agency dedicated to simplifying insurance shopping with clarity, privacy, and honesty." />
+        <meta
+          name="description"
+          content="Learn about Cherries Insurance — a modern digital-first agency dedicated to simplifying insurance shopping with clarity, privacy, and honesty."
+        />
         <link rel="canonical" href="https://www.cherriesinsurance.com/about" />
 
         {/* Open Graph */}
-        <meta property="og:title" content="About Cherries Insurance | Our Story, Mission & Values" />
-        <meta property="og:description" content="Learn about Cherries Insurance — a modern digital-first agency dedicated to simplifying insurance shopping with clarity, privacy, and honesty." />
+        <meta
+          property="og:title"
+          content="About Cherries Insurance | Our Story, Mission & Values"
+        />
+        <meta
+          property="og:description"
+          content="Learn about Cherries Insurance — a modern digital-first agency dedicated to simplifying insurance shopping with clarity, privacy, and honesty."
+        />
         <meta property="og:url" content="https://www.cherriesinsurance.com/about" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/Back_Ground_Photo_About_Us.jpg" />
+        <meta property="og:image" content="https://i.ibb.co/4ZsPPNS5/Back-Ground-Photo-About-Us.png" />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="About Cherries Insurance | Our Story, Mission & Values" />
-        <meta name="twitter:description" content="Learn about Cherries Insurance — a modern digital-first agency dedicated to simplifying insurance shopping with clarity, privacy, and honesty." />
-        <meta name="twitter:image" content="/Back_Ground_Photo_About_Us.jpg" />
+        <meta
+          name="twitter:title"
+          content="About Cherries Insurance | Our Story, Mission & Values"
+        />
+        <meta
+          name="twitter:description"
+          content="Learn about Cherries Insurance — a modern digital-first agency dedicated to simplifying insurance shopping with clarity, privacy, and honesty."
+        />
+        <meta name="twitter:image" content="https://i.ibb.co/4ZsPPNS5/Back-Ground-Photo-About-Us.png" />
 
         {/* Schema.org JSON-LD */}
         <script type="application/ld+json">
           {`{
-            "@context": "https://schema.org",
-            "@type": "InsuranceAgency",
-            "name": "Cherries Insurance",
-            "url": "https://www.cherriesinsurance.com/about",
-            "logo": "/logo.png",
-            "image": "/Back_Ground_Photo_About_Us.jpg",
-            "description": "Learn about Cherries Insurance — a modern digital-first agency dedicated to simplifying insurance shopping with clarity, privacy, and honesty.",
-            "areaServed": "US"
+            "@context":"https://schema.org",
+            "@type":"InsuranceAgency",
+            "name":"Cherries Insurance",
+            "url":"https://www.cherriesinsurance.com/about",
+            "logo":"/logo.png",
+            "image":"https://i.ibb.co/4ZsPPNS5/Back-Ground-Photo-About-Us.png",
+            "description":"Learn about Cherries Insurance — a modern digital-first agency dedicated to simplifying insurance shopping with clarity, privacy, and honesty.",
+            "areaServed":"US"
           }`}
         </script>
       </Head>
@@ -96,11 +104,12 @@ const AboutPage: React.FC = () => {
                 </p>
               </div>
             </div>
-            <div>
-              <img
+            <div className="relative w-full h-[600px]">
+              <Image
                 src="https://i.ibb.co/7tjnzdwS/Body-Photo-About-Us.png"
                 alt="Team members in a meeting"
-                className="rounded-xl shadow-lg w-full h-auto max-h-[600px] object-cover"
+                fill
+                className="rounded-xl shadow-lg object-cover"
               />
             </div>
           </div>
@@ -132,13 +141,33 @@ const AboutPage: React.FC = () => {
       {/* Our Values */}
       <section className="section bg-neutral-50" ref={valuesRef}>
         <div className="container-custom">
-          <SectionTitle title="Our Values" subtitle="The principles that guide everything we do" centered />
+          <SectionTitle
+            title="Our Values"
+            subtitle="The principles that guide everything we do"
+            centered
+          />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { icon: <Shield className="w-6 h-6" />, title: 'Trust', description: 'We prioritize honesty and integrity in all interactions.' },
-              { icon: <Heart className="w-6 h-6" />, title: 'Simplicity', description: 'We make insurance straightforward and easy to understand.' },
-              { icon: <Target className="w-6 h-6" />, title: 'Privacy', description: 'Your personal information remains confidential and secure.' },
-              { icon: <Award className="w-6 h-6" />, title: 'Honesty', description: 'We provide accurate and unbiased information.' }
+              {
+                icon: <Shield className="w-6 h-6 text-white" />,
+                title: 'Trust',
+                description: 'We prioritize honesty and integrity in all interactions.'
+              },
+              {
+                icon: <Heart className="w-6 h-6 text-white" />,
+                title: 'Simplicity',
+                description: 'We make insurance straightforward and easy to understand.'
+              },
+              {
+                icon: <Target className="w-6 h-6 text-white" />,
+                title: 'Privacy',
+                description: 'Your personal information remains confidential and secure.'
+              },
+              {
+                icon: <Award className="w-6 h-6 text-white" />,
+                title: 'Honesty',
+                description: 'We provide accurate and unbiased information.'
+              }
             ].map(({ icon, title, description }, idx) => (
               <ValueCard
                 key={title}
@@ -172,7 +201,7 @@ const ValueCard: React.FC<ValueCardProps> = ({ icon, title, description, delay, 
     transition={{ duration: 0.5, delay: delay * 0.2 }}
   >
     <div className="mb-4 gradient-bg w-14 h-14 rounded-full flex items-center justify-center">
-      <div className="text-white">{icon}</div>
+      {icon}
     </div>
     <h3 className="text-xl font-bold mb-3">{title}</h3>
     <p className="text-neutral-600">{description}</p>
