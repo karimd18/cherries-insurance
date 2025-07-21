@@ -46,7 +46,7 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 w-full z-50 bg-white transition-shadow duration-300 ${isScrolled ? 'shadow-md' : ''}`}>
-      <div className="container-custom flex items-center justify-between py-4">
+      <div className="container-custom flex items-center justify-between py-1">
         <Link href="/" className="relative z-20">
           <Image src={logo} alt="Cherries Insurance" width={150} height={40} />
         </Link>

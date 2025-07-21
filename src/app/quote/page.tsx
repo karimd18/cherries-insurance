@@ -121,13 +121,10 @@ export default function QuotePage() {
             />
             <Shield className="w-12 h-12 text-primary-700 mx-auto mb-4 animate-pulse" />
             <h2 className="text-3xl font-bold text-primary-700 mb-2">
-              Section Under Construction
+              Online quoting is coming soon!
             </h2>
             <p className="text-neutral-700 mb-4">
-              This part of the page isn’t ready yet.
-            </p>
-            <p className="text-neutral-600 mb-6">
-              Closing in {seconds} second{seconds !== 1 ? 's' : ''}…
+              We are putting the final touches on our systems - check back shortly or contact us directly for assistance.
             </p>
           </motion.div>
         </div>
