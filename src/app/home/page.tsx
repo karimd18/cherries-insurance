@@ -21,7 +21,7 @@ import {
 
 import Hero from "@/components/ui/Hero";
 import Button from "@/components/ui/Button";
-import Card, { CardContent, CardTitle, CardImage } from "@/components/ui/Card";
+import Card, { CardContent, CardImage } from "@/components/ui/Card";
 import SectionTitle from "@/components/ui/SectionTitle";
 import FeatureCard from "@/components/ui/FeatureCard";
 
@@ -36,7 +36,7 @@ export default function HomePage() {
       {/* Hero */}
       <Hero
         title="We don’t sell insurance. We simplify it."
-        subtitle="Smart, spam-free coverage. All online. All in one place. Personalized insurance. Clear quotes. No spam. Just protection you understand."
+        subtitle="Smart, spam-free coverage. All online. All in one place."
         image="https://i.ibb.co/ptGkxzj/Background-Photo-Home-Page.png"
         imageAlt="Downtown Boston street view with historic brownstone buildings and modern skyscrapers under a clear blue sky"
         primaryButtonText="Get a Free Quote"
@@ -158,7 +158,7 @@ export default function HomePage() {
                       <div className="gradient-bg w-10 h-10 rounded-full flex items-center justify-center">
                         <div className="text-white">{icon}</div>
                       </div>
-                      <CardTitle className="text-lg">{title}</CardTitle>
+                      <h2 className="text-lg font-semibold">{title}</h2>
                     </div>
                     <ul className="space-y-2 mb-6">
                       {features.map((f, i) => (
@@ -171,8 +171,11 @@ export default function HomePage() {
                         </li>
                       ))}
                     </ul>
-                    <Link href={link}>
-                      <Button variant="outline" className="w-full quote-button">
+                    <Link href={link} passHref legacyBehavior>
+                      <Button
+                        variant="outline"
+                        className="w-full quote-button"
+                      >
                         Learn More
                         <ArrowRight className="ml-2 w-4 h-4" />
                       </Button>
@@ -246,16 +249,12 @@ export default function HomePage() {
                     label: "Motorcycle",
                     link: "/motorcycle-insurance",
                   },
-                  {
-                    icon: <Anchor className="w-8 h-8" />,
-                    label: "Yacht",
-                    link: "/yacht-insurance",
-                  },
                 ].map(({ icon, label, link }) => (
                   <Link
                     key={label}
                     href={link}
                     className="flex flex-col items-center p-4 rounded-lg border-2 border-neutral-200 hover:border-primary-500 hover:bg-primary-50 transition-all duration-300"
+                    aria-label={`Get ${label} insurance quote`}
                   >
                     <div className="text-primary-600 mb-2">{icon}</div>
                     <span className="font-medium text-neutral-700">
@@ -345,7 +344,7 @@ export default function HomePage() {
             your pace.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/quote">
+            <Link href="/quote" passHref legacyBehavior>
               <Button
                 variant="primary"
                 size="lg"
@@ -354,7 +353,7 @@ export default function HomePage() {
                 Get a Free Quote
               </Button>
             </Link>
-            <Link href="/contact">
+            <Link href="/contact" passHref legacyBehavior>
               <Button
                 variant="outline"
                 size="lg"
@@ -403,13 +402,15 @@ export default function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group bg-white p-6 rounded-xl shadow-sm hover:shadow-lg hover:scale-105 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                aria-label={`Leave review on ${name}`}
               >
-                <div className="relative mx-auto h-12 w-auto">
+                <div className="relative mx-auto h-12 w-32">
                   <Image
                     src={logo}
                     alt={alt}
                     fill
                     className="object-contain"
+                    sizes="(max-width: 640px) 100px, 200px"
                   />
                 </div>
                 <span className="mt-3 block text-sm font-medium text-neutral-700 group-hover:text-primary-700">
