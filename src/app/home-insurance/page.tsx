@@ -21,25 +21,25 @@ import Hero from '@/components/ui/Hero';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Button from '@/components/ui/Button';
 
-export const metadata = {
-  title: 'Home Insurance Quote | Cherries Insurance',
-  description:
-    'Get a reliable home insurance quote tailored to your needs. Compare plans from A-rated carriers—100% online with no calls, no spam, and no pressure.',
-  keywords: 'home insurance quote',
-  openGraph: {
-    title: 'Home Insurance Quote | Cherries Insurance',
-    description:
-      'Get a reliable home insurance quote tailored to your needs. Compare plans from A-rated carriers—100% online with no calls, no spam, and no pressure.',
-    url: 'https://www.cherriesinsurance.com/home-insurance',
-    type: 'website',
-    images: [
-      {
-        url: 'https://i.ibb.co/93225m8f/Background-Photo-Home-Insurance.png',
-        alt: 'Home Insurance Background'
-      }
-    ]
-  }
-}
+// export const metadata = {
+//   title: 'Home Insurance Quote | Cherries Insurance',
+//   description:
+//     'Get a reliable home insurance quote tailored to your needs. Compare plans from A-rated carriers—100% online with no calls, no spam, and no pressure.',
+//   keywords: 'home insurance quote',
+//   openGraph: {
+//     title: 'Home Insurance Quote | Cherries Insurance',
+//     description:
+//       'Get a reliable home insurance quote tailored to your needs. Compare plans from A-rated carriers—100% online with no calls, no spam, and no pressure.',
+//     url: 'https://www.cherriesinsurance.com/home-insurance',
+//     type: 'website',
+//     images: [
+//       {
+//         url: 'https://i.ibb.co/93225m8f/Background-Photo-Home-Insurance.png',
+//         alt: 'Home Insurance Background'
+//       }
+//     ]
+//   }
+// }
 
 const HomeInsurancePage: React.FC = () => {
   const [covRef] = useInView({ triggerOnce: true, threshold: 0.1 });
