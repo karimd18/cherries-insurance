@@ -37,7 +37,7 @@ const AutoInsurancePage: React.FC = () => {
           name="description"
           content="Get a personalized auto insurance quote in minutes. Compare flexible coverage options and save—no calls, no pressure, just smart coverage."
         />
-        <link rel="canonical" href="https://www.cherriesinsurance.com/auto-insurance" />
+        <link rel="canonical" href="https://cherries-insurance.vercel.app/auto-insurance" />
 
         {/* Open Graph */}
         <meta
@@ -50,7 +50,7 @@ const AutoInsurancePage: React.FC = () => {
         />
         <meta
           property="og:url"
-          content="https://www.cherriesinsurance.com/auto-insurance"
+          content="https://cherries-insurance.vercel.app/auto-insurance"
         />
         <meta property="og:type" content="website" />
         <meta
@@ -78,7 +78,7 @@ const AutoInsurancePage: React.FC = () => {
           "@context": "https://schema.org",
           "@type": ["LocalBusiness", "InsuranceAgency"],
           "name": "Cherries Insurance",
-          "url": "https://www.cherriesinsurance.com/auto-insurance",
+          "url": "https://cherries-insurance.vercel.app/auto-insurance",
           "logo": "/logo.png",
           "image": "https://i.ibb.co/8nBk6s6h/Background-Photo-Auto-Insurance.png",
           "description": "Cherries Insurance helps you find reliable, personalized auto insurance from A-rated carriers. 100% online, no phone calls or pressure.",
