@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react';
-import Head from 'next/head';
+import Script from 'next/script'
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -21,6 +21,43 @@ import Hero from '@/components/ui/Hero';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Button from '@/components/ui/Button';
 
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Auto Insurance Quote Online | Cherries Insurance',
+  description:
+    'Get a personalized auto insurance quote in minutes. Compare flexible coverage options and save—no calls, no pressure, just smart coverage.',
+  keywords: ['auto insurance', 'insurance quote', 'car insurance'],
+
+  alternates: {
+    canonical: 'https://cherries-insurance.vercel.app/auto-insurance',
+  },
+
+  openGraph: {
+    type: 'website',
+    url: 'https://cherries-insurance.vercel.app/auto-insurance',
+    title: 'Auto Insurance Quote | Cherries Insurance',
+    description:
+      'Get a personalized auto insurance quote in minutes. Compare flexible coverage options and save—no calls, no pressure, just smart coverage.',
+    images: [
+      {
+        url: '/auto-insurance/opengraph-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Driver’s seat view with hands on the wheel and car interior.',
+      },
+    ],
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Auto Insurance Quote | Cherries Insurance',
+    description:
+      'Get a personalized auto insurance quote in minutes. Compare flexible coverage options and save—no calls, no pressure, just smart coverage.',
+    images: ['/auto-insurance/twitter-image.png'],
+  },
+}
+
 const AutoInsurancePage: React.FC = () => {
   const [covRef] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [whyRef] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -28,63 +65,20 @@ const AutoInsurancePage: React.FC = () => {
 
   return (
     <>
-      {/* SEO & Meta Tags */}
-      <Head>
-        <title>Auto Insurance Quote Online | Cherries Insurance</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="keywords" content="auto insurance quote" />
-        <meta
-          name="description"
-          content="Get a personalized auto insurance quote in minutes. Compare flexible coverage options and save—no calls, no pressure, just smart coverage."
-        />
-        <link rel="canonical" href="https://cherries-insurance.vercel.app/auto-insurance" />
-
-        {/* Open Graph */}
-        <meta
-          property="og:title"
-          content="Auto Insurance Quote | Cherries Insurance"
-        />
-        <meta
-          property="og:description"
-          content="Get a personalized auto insurance quote in minutes. Compare flexible coverage options and save—no calls, no pressure, just smart coverage."
-        />
-        <meta
-          property="og:url"
-          content="https://cherries-insurance.vercel.app/auto-insurance"
-        />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content="https://i.ibb.co/8nBk6s6h/Background-Photo-Auto-Insurance.png"
-        />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Auto Insurance Quote | Cherries Insurance"
-        />
-        <meta
-          name="twitter:description"
-          content="Get a personalized auto insurance quote in minutes. Compare flexible coverage options and save—no calls, no pressure, just smart coverage."
-        />
-        <meta
-          name="twitter:image"
-          content="https://i.ibb.co/8nBk6s6h/Background-Photo-Auto-Insurance.png"
-        />
-
-        {/* Structured Data */}
-        <script type="application/ld+json">{`{
+    {/* JSON-LD structured data */}
+      <Script id="ld-json" type="application/ld+json">
+        {`{
           "@context": "https://schema.org",
-          "@type": ["LocalBusiness", "InsuranceAgency"],
+          "@type": ["LocalBusiness","InsuranceAgency"],
           "name": "Cherries Insurance",
           "url": "https://cherries-insurance.vercel.app/auto-insurance",
           "logo": "/logo.png",
           "image": "https://i.ibb.co/8nBk6s6h/Background-Photo-Auto-Insurance.png",
           "description": "Cherries Insurance helps you find reliable, personalized auto insurance from A-rated carriers. 100% online, no phone calls or pressure.",
           "areaServed": "US"
-        }`}</script>
-      </Head>
+        }`}
+      </Script>
+      
 
       {/* Hero Section */}
       <Hero
