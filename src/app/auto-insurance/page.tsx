@@ -41,7 +41,7 @@ export const metadata: Metadata = {
       'Get a personalized auto insurance quote in minutes. Compare flexible coverage options and save—no calls, no pressure, just smart coverage.',
     images: [
       {
-        url: '/auto-insurance/opengraph-image.png',
+        url: 'https://i.ibb.co/8nBk6s6h/Background-Photo-Auto-Insurance.png',
         width: 1200,
         height: 630,
         alt: 'Driver’s seat view with hands on the wheel and car interior.',
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     title: 'Auto Insurance Quote | Cherries Insurance',
     description:
       'Get a personalized auto insurance quote in minutes. Compare flexible coverage options and save—no calls, no pressure, just smart coverage.',
-    images: ['/auto-insurance/twitter-image.png'],
+    images: ['https://i.ibb.co/8nBk6s6h/Background-Photo-Auto-Insurance.png'],
   },
 }
 
