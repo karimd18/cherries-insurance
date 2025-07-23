@@ -34,9 +34,9 @@ const AutoInsurancePage: React.FC = () => {
         title="Protection That Moves With You"
         subtitle="Flexible auto coverage tailored to your needs, with honest pricing and no pressure."
         image={[
-          "https://i.ibb.co/8nBk6s6h/Background-Photo-Auto-Insurance.png",
-          "https://i.ibb.co/tMXtKMr3/Background-Photo-Auto-Insurance-01.png",
-          "https://i.ibb.co/nsgDhtmw/Background-Photo-Auto-Insurance-02.png"
+          "/auto-insurance/Background_Photo_Auto_Insurance.png",
+          "/auto-insurance/Background_Photo_Auto_Insurance_01.png",
+          "/auto-insurance/Background_Photo_Auto_Insurance_02.png"
         ]}
         imageAlt="Driver’s seat view with hands on the wheel and car interior."
         primaryButtonText="Get Your Auto Quote"
@@ -141,7 +141,7 @@ const AutoInsurancePage: React.FC = () => {
           <div className="mt-12 text-center">
             <div className="relative w-full h-[900px] mx-auto">
               <Image
-                src="https://i.ibb.co/GfDpnT4q/Auto-Insurance-Section03.png"
+                src="/auto-insurance/Auto_Insurance_Section03.png"
                 alt="Updated auto insurance illustration"
                 fill
                 className="rounded-xl shadow-lg object-cover"

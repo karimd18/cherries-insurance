@@ -5,7 +5,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Menu, X, ChevronDown } from 'lucide-react'
-import logo from '@/assets/logo.png'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -48,7 +47,7 @@ export default function Navbar() {
     <nav className={`fixed top-0 w-full z-50 bg-white transition-shadow duration-300 ${isScrolled ? 'shadow-md' : ''}`}>
       <div className="container-custom flex items-center justify-between py-1">
         <Link href="/" className="relative z-20">
-          <Image src={logo} alt="Cherries Insurance" width={150} height={40} />
+          <Image src='/logo/logo.png' alt="Cherries Insurance" width={150} height={40} />
         </Link>
 
         {/* Desktop */}
