@@ -41,17 +41,19 @@ export default function Page() {
   return (
     <>
       {/* JSON-LD Structured Data */}
-      <Script type="application/ld+json">
-        {`{
-  "@context": "https://schema.org",
-  "@type": ["LocalBusiness","InsuranceAgency"],
-  "name": "Cherries Insurance",
-  "url": "https://www.cherriesinsurance.com/home-insurance",
-  "logo": "/logo.png",
-  "image": "/home-insurance/Background-Photo-Home-Insurance.png",
-  "description": "Cherries Insurance helps you find reliable, personalized home insurance from A-rated carriers. 100% online with no calls, no spam, and no pressure.",
-  "areaServed": "US"
-}`}
+      <Script
+        id="schema-insurance-agency"
+        type="application/ld+json"
+      >{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": ["LocalBusiness", "InsuranceAgency"],
+          "name": "Cherries Insurance",
+          "url": "https://www.cherriesinsurance.com/home-insurance",
+          "logo": "/logo.png",
+          "image": "/home-insurance/Background-Photo-Home-Insurance.png",
+          "description": "Cherries Insurance helps you find reliable, personalized home insurance from A-rated carriers. 100% online with no calls, no spam, and no pressure.",
+          "areaServed": "US"
+        })}
       </Script>
 
           <HomeInsurancePage />

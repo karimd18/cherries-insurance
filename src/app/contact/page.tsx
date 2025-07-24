@@ -39,17 +39,19 @@ export default function Page() {
   return (
     <>
         {/* Schema.org JSON-LD */}
-        <Script type="application/ld+json">
-          {`{
-            "@context":"https://schema.org",
-            "@type":["LocalBusiness","InsuranceAgency"],
-            "name":"Cherries Insurance",
-            "url":"https://www.cherriesinsurance.com/contact",
-            "logo":"/logo/logo.png",
-            "image":"/contact/contact_bg.png",
-            "description":"Get in touch with Cherries Insurance. Contact our support, sales, or general inquiry teams by email or phone. Quick, spam-free help during business hours.",
-            "areaServed":"US"
-          }`}
+        <Script
+        id="schema-insurance-agency"
+        type="application/ld+json"
+      >{JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": ["LocalBusiness", "InsuranceAgency"],
+            "name": "Cherries Insurance",
+            "url": "https://www.cherriesinsurance.com/contact",
+            "logo": "/logo/logo.png",
+            "image": "/contact/contact-bg.png",
+            "description": "Get in touch with Cherries Insurance. Contact our support, sales, or general inquiry teams by email or phone. Quick, spam-free help during business hours.",
+            "areaServed": "US"
+          })}
         </Script>
       <ContactUsPage />
     </>

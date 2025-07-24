@@ -41,20 +41,22 @@ export default function Page() {
   return (
     <>
       {/* JSON-LD Structured Data */}
-      <Script type="application/ld+json">
-        {`{
-  "@context": "https://schema.org",
-  "@type": ["LocalBusiness","InsuranceAgency"],
-  "name": "Cherries Insurance",
-  "url": "https://www.cherriesinsurance.com/motorcycle-insurance",
-  "logo": "/logo.png",
-  "image": "/motorcycle-insurance/Background-Photo-Motorcycle-Insurance.png",
-  "description": "Get a personalized motorcycle insurance quote in minutes. Compare affordable coverage for liability, damage, and gear—no calls, no pressure, just smart protection.",
-  "areaServed": "US"
-}`}
+      <Script
+        id="schema-insurance-agency"
+        type="application/ld+json"
+      >{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": ["LocalBusiness", "InsuranceAgency"],
+          "name": "Cherries Insurance",
+          "url": "https://www.cherriesinsurance.com/motorcycle-insurance",
+          "logo": "/logo/logo.png",
+          "image": "/motorcycle-insurance/Background_Photo_Motorcycle_Insurance.png",
+          "description": "Get a personalized motorcycle insurance quote in minutes. Compare affordable coverage for liability, damage, and gear—no calls, no pressure, just smart protection.",
+          "areaServed": "US"
+        })}
       </Script>
 
-          <MotorcycleInsurancePage />
+      <MotorcycleInsurancePage />
     </>
   );
 }

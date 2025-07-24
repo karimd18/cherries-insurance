@@ -40,16 +40,19 @@ export default function Page() {
   return (
     <>
         {/* Structured Data */}
-        <Script type="application/ld+json">{`{
+        <Script
+        id="schema-insurance-agency"
+        type="application/ld+json"
+      >{JSON.stringify({
           "@context": "https://schema.org",
-          "@type": ["LocalBusiness","InsuranceAgency"],
+          "@type": ["LocalBusiness", "InsuranceAgency"],
           "name": "Cherries Insurance",
           "url": "https://www.cherriesinsurance.com/bop-insurance",
-          "logo": "@/assets/logo.png",
-          "image": "https://i.ibb.co/B2vfRqH5/Background-Photo-Business-Insurance.png",
+          "logo": "/logo/logo.png",
+          "image": "/bop-insurance/Background_Photo_Business_Insurance.png",
           "description": "Simplify small business insurance with Cherries Insurance. Compare BOP coverage options including property, liability, and business interruption—all tailored to your operations in Massachusetts.",
           "areaServed": "US"
-        }`}</Script>
+        })}</Script>
         <BOPInsurancePage />
     </>
   );

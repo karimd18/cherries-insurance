@@ -45,17 +45,19 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <Script type="application/ld+json">
-        {`{
-      "@context": "https://schema.org",
-      "@type": ["LocalBusiness", "InsuranceAgency"],
-      "name": "Cherries Insurance",
-      "url": "https://www.cherriesinsurance.com/yacht-insurance",
-      "logo": "/logo.png",
-      "image": "https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "description": "Premium protection for your yacht with comprehensive coverage for hull, engine, and everything aboard—compare plans for liability, storm damage, emergency towing, personal effects, and marina coverage online with no calls, no pressure.",
-      "areaServed": "US"
-    }`}
+      <Script
+        id="schema-insurance-agency"
+        type="application/ld+json"
+      >{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": ["LocalBusiness", "InsuranceAgency"],
+          "name": "Cherries Insurance",
+          "url": "https://www.cherriesinsurance.com/yacht-insurance",
+          "logo": "/logo/logo.png",
+          "image": "https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+          "description": "Premium protection for your yacht with comprehensive coverage for hull, engine, and everything aboard—compare plans for liability, storm damage, emergency towing, personal effects, and marina coverage online with no calls, no pressure.",
+          "areaServed": "US"
+        })}
       </Script>
 
       <YachtInsurancePage />

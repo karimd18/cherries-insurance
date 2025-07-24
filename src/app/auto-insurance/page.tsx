@@ -37,17 +37,20 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <Script id="ld-json" type="application/ld+json">
-        {`{
+      <Script
+        id="schema-insurance-agency"
+        type="application/ld+json"
+      >
+        {JSON.stringify({
           "@context": "https://schema.org",
-          "@type": ["LocalBusiness","InsuranceAgency"],
+          "@type": ["LocalBusiness", "InsuranceAgency"],
           "name": "Cherries Insurance",
           "url": "https://www.cherriesinsurance.com/auto-insurance",
           "logo": "/logo/logo.png",
           "image": "/auto-insurance/Background_Photo_Auto_Insurance.png",
           "description": "Cherries Insurance helps you find reliable, personalized auto insurance from A-rated carriers. 100% online, no phone calls or pressure.",
           "areaServed": "US"
-        }`}
+        })}
       </Script>
       <AutoInsurancePage />
     </>

@@ -46,8 +46,10 @@ export default function Page() {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
 
       {/* Structured Data */}
-      <Script type="application/ld+json">
-        {`{
+      <Script
+        id="schema-insurance-agency"
+        type="application/ld+json"
+      >{JSON.stringify({
           "@context": "https://schema.org",
           "@type": ["LocalBusiness", "InsuranceAgency"],
           "name": "Cherries Insurance",
@@ -56,7 +58,7 @@ export default function Page() {
           "image": "/home/Background_Photo_Home_Page.png",
           "description": "Cherries Insurance is a modern, independent insurance agency helping individuals and small businesses compare quotes and get covered — without spam, pressure, or hassle.",
           "areaServed": "US"
-        }`}
+        })}
       </Script>
 
       <HomePage />

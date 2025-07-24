@@ -19,7 +19,7 @@ import SectionTitle from '@/components/ui/SectionTitle';
 
 export default function QuotePage() {
   const [showPopup, setShowPopup] = useState(true);
-  const [seconds, setSeconds] = useState(20);
+  const [, setSeconds] = useState(20);
 
   // Countdown timer for popup
   useEffect(() => {

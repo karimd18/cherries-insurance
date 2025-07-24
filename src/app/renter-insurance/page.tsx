@@ -39,17 +39,20 @@ export default function Page() {
   return (
     <>
       {/* Structured Data */}
-      <Script type="application/ld+json">
-        {`{
-  "@context": "https://schema.org",
-  "@type": ["LocalBusiness","InsuranceAgency"],
-  "name": "Cherries Insurance",
-  "url": "https://www.cherriesinsurance.com/renters-insurance",
-  "logo": "/logo.png",
-  "image": "/renter-insurance/Background_Photo_Renters_Insurance.png",
-  "description": "Compare renters insurance quotes in Massachusetts with Cherries Insurance. Get affordable coverage for your belongings, liability, and living expenses—no calls, no pressure.",
-  "areaServed": "US"
-}`}
+      <Script
+        id="schema-insurance-agency"
+        type="application/ld+json"
+      >
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": ["LocalBusiness", "InsuranceAgency"],
+          "name": "Cherries Insurance",
+          "url": "https://www.cherriesinsurance.com/renters-insurance",
+          "logo": "/logo/logo.png",
+          "image": "/renter-insurance/Background_Photo_Renters_Insurance.png",
+          "description": "Compare renters insurance quotes in Massachusetts with Cherries Insurance. Get affordable coverage for your belongings, liability, and living expenses—no calls, no pressure.",
+          "areaServed": "US"
+        })}
       </Script>
 
       <RenterInsurancePage />

@@ -39,17 +39,19 @@ export default function Page() {
   return (
     <>
       {/* JSON-LD Structured Data */}
-      <Script type="application/ld+json">
-        {`{
-  "@context": "https://schema.org",
-  "@type": ["LocalBusiness","InsuranceAgency"],
-  "name": "Cherries Insurance",
-  "url": "https://www.cherriesinsurance.com/quote",
-  "logo": "/logo.png",
-  "image": "/quote/Background_Photo_GetaQuote_Page.png",
-  "description": "Get a personalized insurance quote online in just a few minutes. Compare options for home, auto, renters, and business coverage — fast, secure, and spam-free.",
-  "areaServed": "US"
-}`}
+      <Script
+        id="schema-insurance-agency"
+        type="application/ld+json"
+      >{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": ["LocalBusiness", "InsuranceAgency"],
+          "name": "Cherries Insurance",
+          "url": "https://www.cherriesinsurance.com/quote",
+          "logo": "/logo/logo.png",
+          "image": "/quote/Background_Photo_GetaQuote_Page.png",
+          "description": "Get a personalized insurance quote online in just a few minutes. Compare options for home, auto, renters, and business coverage — fast, secure, and spam-free.",
+          "areaServed": "US"
+        })}
       </Script>
 
       <QuotePage />
