@@ -1,12 +1,13 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 export default function Navbar() {
+  const navRef = useRef<HTMLElement>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [insuranceDropdown, setInsuranceDropdown] = useState(false);
@@ -24,6 +25,21 @@ export default function Navbar() {
     setIsOpen(false);
     setInsuranceDropdown(false);
   }, [pathname]);
+
+  // close both menus when clicking outside the <nav>
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+        setInsuranceDropdown(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -45,6 +61,7 @@ export default function Navbar() {
 
   return (
     <nav
+      ref={navRef}
       className={`fixed top-0 w-full z-50 bg-white transition-shadow duration-300 ${
         isScrolled ? "shadow-md" : ""
       }`}

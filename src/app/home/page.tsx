@@ -41,7 +41,8 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return (
+
+    return (
     <>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
 

@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import {
   Shield,
   X,
@@ -11,11 +11,11 @@ import {
   Building,
   Users,
   Bike,
-} from 'lucide-react';
-import Link from 'next/link';
+} from "lucide-react";
+import Link from "next/link";
 
-import Hero from '@/components/ui/Hero';
-import SectionTitle from '@/components/ui/SectionTitle';
+import Hero from "@/components/ui/Hero";
+import SectionTitle from "@/components/ui/SectionTitle";
 
 export default function QuotePage() {
   const [showPopup, setShowPopup] = useState(true);
@@ -26,7 +26,7 @@ export default function QuotePage() {
     if (!showPopup) return;
     setSeconds(20);
     const interval = setInterval(() => {
-      setSeconds(prev => {
+      setSeconds((prev) => {
         if (prev <= 1) {
           clearInterval(interval);
           setShowPopup(false);
@@ -40,9 +40,9 @@ export default function QuotePage() {
 
   // Disable background scrolling when popup is active
   useEffect(() => {
-    document.body.style.overflow = showPopup ? 'hidden' : '';
+    document.body.style.overflow = showPopup ? "hidden" : "";
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
   }, [showPopup]);
 
@@ -66,14 +66,15 @@ export default function QuotePage() {
               Online quoting is coming soon!
             </h2>
             <p className="text-neutral-700 mb-4">
-              We are putting the final touches on our systems - check back shortly or contact us directly for assistance.
+              We are putting the final touches on our systems - check back
+              shortly or contact us directly for assistance.
             </p>
           </motion.div>
         </div>
       )}
 
       {/* Main Content */}
-      <div className={showPopup ? 'pointer-events-none select-none' : ''}>
+      <div className={showPopup ? "pointer-events-none select-none" : ""}>
         {/* 1. Hero Section */}
         <Hero
           title="Get a Free Insurance Quote"
@@ -84,7 +85,12 @@ export default function QuotePage() {
           primaryButtonLink="#quote-form"
           secondaryButtonText="Why Us?"
           secondaryButtonLink="/about"
-          showTrustBadges={false}
+          showTrustBadges={true}
+          trustBadges={[
+            "BBB Accredited",
+            "Partnered with A-Rated Carriers",
+            "100% Online, No Calls Required, No Spam, No Pressure",
+          ]}
         />
 
         {/* 2. Quote Process Section */}
@@ -139,28 +145,28 @@ export default function QuotePage() {
                   {[
                     {
                       icon: <Car className="w-6 h-6" />,
-                      label: 'Auto Insurance',
-                      href: '/auto-insurance',
+                      label: "Auto Insurance",
+                      href: "/auto-insurance",
                     },
                     {
                       icon: <HomeIcon className="w-6 h-6" />,
-                      label: 'Home Insurance',
-                      href: '/home-insurance',
+                      label: "Home Insurance",
+                      href: "/home-insurance",
                     },
                     {
                       icon: <Users className="w-6 h-6" />,
-                      label: 'Business Insurance',
-                      href: '/bop-insurance',
+                      label: "Business Insurance",
+                      href: "/bop-insurance",
                     },
                     {
                       icon: <Building className="w-6 h-6" />,
-                      label: 'Renters Insurance',
-                      href: '/renter-insurance',
+                      label: "Renters Insurance",
+                      href: "/renter-insurance",
                     },
                     {
                       icon: <Bike className="w-6 h-6" />,
-                      label: 'Motorcycle Insurance',
-                      href: '/motorcycle-insurance',
+                      label: "Motorcycle Insurance",
+                      href: "/motorcycle-insurance",
                     },
                   ].map(({ icon, label, href }) => (
                     <Link
@@ -194,19 +200,19 @@ export default function QuotePage() {
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-8">
               {[
                 {
-                  name: 'BBB',
-                  logo: '/reviews/BBB_Logo.png',
-                  url: '#',
+                  name: "BBB",
+                  logo: "/reviews/BBB_Logo.png",
+                  url: "#",
                 },
                 {
-                  name: 'Trustpilot',
-                  logo: '/reviews/TrustPilot_Logo.png',
-                  url: '#',
+                  name: "Trustpilot",
+                  logo: "/reviews/TrustPilot_Logo.png",
+                  url: "#",
                 },
                 {
-                  name: 'Google Reviews',
-                  logo: '/reviews/Google_Reviews_Logo.png',
-                  url: '#',
+                  name: "Google Reviews",
+                  logo: "/reviews/Google_Reviews_Logo.png",
+                  url: "#",
                 },
               ].map(({ name, logo, url }) => (
                 <a

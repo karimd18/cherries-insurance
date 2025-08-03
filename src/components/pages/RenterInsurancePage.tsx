@@ -39,8 +39,7 @@ const RenterInsurancePage: React.FC = () => {
         trustBadges={[
           'BBB Accredited',
           'Partnered with A-Rated Carriers',
-          '100% Online, No Calls Required',
-          'No Spam, No Pressure'
+          '100% Online, No Calls Required, No Spam, No Pressure'
         ]}
       />
 

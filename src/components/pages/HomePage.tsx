@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
@@ -30,6 +30,10 @@ export default function HomePage() {
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>
@@ -69,7 +73,7 @@ export default function HomePage() {
                   "Personal liability",
                 ],
                 icon: <Home className="w-6 h-6" />,
-                image: "/home/Background_Photo_Home_Page.png",
+                image: "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
                 link: "/home-insurance",
                 delay: 0,
               },
@@ -150,8 +154,7 @@ export default function HomePage() {
                       src={image}
                       alt={title}
                       fill
-                      className="object-fill"
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover"
                     />
                   </div>
 

@@ -1,19 +1,32 @@
-'use client'
+"use client";
 
-import React from 'react';
-import Layout from '@/components/layout/Layout';
-import './global.css';
-import Head from 'next/head';
-import Script from 'next/script';
-import Image from 'next/image';
+import React, { useEffect } from "react";
+import Layout from "@/components/layout/Layout";
+import "./global.css";
+import Head from "next/head";
+import Script from "next/script";
+import Image from "next/image";
+import { useRouter } from "next/router";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+  }, []);
+  
   return (
     <html lang="en">
       <Head>
         {/* Basic Meta */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Cherries Insurance | Massachusetts-Based Digital Insurance Agency</title>
+        <title>
+          Cherries Insurance | Massachusetts-Based Digital Insurance Agency
+        </title>
         <meta name="keywords" content="massachusetts insurance agency" />
         <meta
           name="description"
@@ -30,7 +43,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           property="og:description"
           content="Cherries Insurance is a modern, independent insurance agency helping individuals and small businesses compare quotes and get covered — without spam, pressure, or hassle."
         />
-        <meta property="og:url" content="https://cherries-insurance.vercel.app/" />
+        <meta
+          property="og:url"
+          content="https://cherries-insurance.vercel.app/"
+        />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/Background_Photo_Home_Page.png" />
 
@@ -89,7 +105,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
         <noscript>
-          <div style={{ display: 'none' }}>
+          <div style={{ display: "none" }}>
             <Image
               src="https://www.facebook.com/tr?id=726456896432889&ev=PageView&noscript=1"
               alt=""

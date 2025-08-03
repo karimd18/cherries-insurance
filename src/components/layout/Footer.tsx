@@ -12,11 +12,7 @@ const Footer: React.FC = () => {
     { href: "/about", label: "About Us" },
     { href: "/contact", label: "Contact Us" },
     { href: "/quote", label: "Get a Quote" },
-    {
-      href: "/FAQs/CherriesInsurance_FAQ.pdf",
-      label: "FAQs",
-      external: true,
-    },
+    { href: "/cherries-insurance_FAQ", label: "FAQs" },
   ];
 
   const insuranceLines = [
@@ -80,9 +76,9 @@ const Footer: React.FC = () => {
         <div>
           <h4 className="text-white font-bold mb-4">Quick Links</h4>
           <ul className="space-y-2">
-            {quickLinks.map(({ href, label, external }) => (
+            {quickLinks.map(({ href, label }) => (
               <li key={href}>
-                {external ? (
+                {href.startsWith("http") ? (
                   <a
                     href={href}
                     target="_blank"
@@ -92,7 +88,11 @@ const Footer: React.FC = () => {
                     {label}
                   </a>
                 ) : (
-                  <Link href={href} className="hover:text-white transition-colors">
+                  <Link
+                    href={href}
+                    className="hover:text-white transition-colors"
+                    scroll={true}
+                  >
                     {label}
                   </Link>
                 )}
@@ -107,7 +107,10 @@ const Footer: React.FC = () => {
           <ul className="space-y-2">
             {insuranceLines.map(({ href, label }) => (
               <li key={href}>
-                <Link href={href} className="hover:text-white transition-colors">
+                <Link
+                  href={href}
+                  className="hover:text-white transition-colors"
+                >
                   {label}
                 </Link>
               </li>
@@ -121,7 +124,10 @@ const Footer: React.FC = () => {
           <ul className="space-y-2">
             {legalLinks.map(({ href, label }) => (
               <li key={href}>
-                <Link href={href} className="hover:text-white transition-colors">
+                <Link
+                  href={href}
+                  className="hover:text-white transition-colors"
+                >
                   {label}
                 </Link>
               </li>
@@ -133,7 +139,8 @@ const Footer: React.FC = () => {
         <div>
           <h4 className="text-white font-bold mb-4">Contact Us</h4>
           <p className="mb-4">
-            We are a fully digital insurance agency<br />
+            We are a fully digital insurance agency
+            <br />
             based in Massachusetts.
           </p>
           <p className="mb-2">
