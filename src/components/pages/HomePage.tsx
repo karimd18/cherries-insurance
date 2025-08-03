@@ -16,12 +16,11 @@ import {
   Award,
   ArrowRight,
   Bike,
-  Anchor,
 } from "lucide-react";
 
 import Hero from "@/components/ui/Hero";
 import Button from "@/components/ui/Button";
-import Card, { CardContent, CardImage } from "@/components/ui/Card";
+import Card, { CardContent } from "@/components/ui/Card";
 import SectionTitle from "@/components/ui/SectionTitle";
 import FeatureCard from "@/components/ui/FeatureCard";
 

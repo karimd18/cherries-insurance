@@ -41,7 +41,7 @@ const FAQPage: React.FC = () => {
           <li>
             <strong>Q: How much coverage do I need?</strong>
             <br />
-            A: Coverage depends on several factors (vehicle/home value, liability exposure, drivers, location). We'll help determine needs based on your personal situation.
+            A: Coverage depends on several factors (vehicle/home value, liability exposure, drivers, location). We&apos;ll help determine needs based on your personal situation.
           </li>
           <li>
             <strong>Q: What affects my premium?</strong>
@@ -95,17 +95,17 @@ const FAQPage: React.FC = () => {
           <li>
             <strong>Q: How do I request a quote?</strong>
             <br />
-            A: Simply click 'Get a Quote' on our website, choose your coverage type, and provide basic info. We'll handle the rest from there.
+            A: Simply click &apos;Get a Quote&apos; on our website, choose your coverage type, and provide basic info. We&apos;ll handle the rest from there.
           </li>
           <li>
             <strong>Q: Will I have to talk to someone?</strong>
             <br />
-            A: Only if you'd like guidance. Otherwise, we respect your privacyeverything can be handled via email or portal.
+            A: Only if you&apos;d like guidance. Otherwise, we respect your privacy everything can be handled via email or portal.
           </li>
           <li>
             <strong>Q: How quickly can I get covered?</strong>
             <br />
-            A: Many personal policies are bound same-day. Business policies often issue within 2448 hours depending on underwriting.
+            A: Many personal policies are bound same-day. Business policies often issue within 24-48 hours depending on underwriting.
           </li>
         </ul>
       </section>
