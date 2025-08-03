@@ -1,9 +1,9 @@
-'use client'
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import {
   Car,
   ShieldCheck,
@@ -12,14 +12,13 @@ import {
   Wrench,
   DollarSign,
   ThumbsUp,
-  ArrowRight
-} from 'lucide-react';
-import Link from 'next/link';
+  ArrowRight,
+} from "lucide-react";
+import Link from "next/link";
 
-import Hero from '@/components/ui/Hero';
-import SectionTitle from '@/components/ui/SectionTitle';
-import Button from '@/components/ui/Button';
-
+import Hero from "@/components/ui/Hero";
+import SectionTitle from "@/components/ui/SectionTitle";
+import Button from "@/components/ui/Button";
 
 const AutoInsurancePage: React.FC = () => {
   const [covRef] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -35,16 +34,16 @@ const AutoInsurancePage: React.FC = () => {
         image={[
           "/auto-insurance/Background_Photo_Auto_Insurance.png",
           "/auto-insurance/Background_Photo_Auto_Insurance_01.png",
-          "/auto-insurance/Background_Photo_Auto_Insurance_02.png"
+          "/auto-insurance/Background_Photo_Auto_Insurance_02.png",
         ]}
         imageAlt="Driver’s seat view with hands on the wheel and car interior."
         primaryButtonText="Get Your Auto Quote"
         primaryButtonLink="/quote"
         showTrustBadges={true}
         trustBadges={[
-          'BBB Accredited',
-          'Partnered with A-Rated Carriers',
-          '100% Online, No Calls Required, No Spam, No Pressure'
+          "BBB Accredited",
+          "Partnered with A-Rated Carriers",
+          "100% Online, No Calls Required, No Spam, No Pressure",
         ]}
       />
 
@@ -109,41 +108,43 @@ const AutoInsurancePage: React.FC = () => {
             subtitle="Confidence, clarity, and coverage—without the hassle."
           />
 
-          <div className="space-y-6">
-            <BenefitItem
-              title="Transparent Quotes"
-              description="Know what you're paying for—no hidden fees, no pushy sales."
-            />
-            <BenefitItem
-              title="Spam-Free Experience"
-              description="Get insured without endless calls or emails. Your privacy, respected."
-            />
-            <BenefitItem
-              title="Exclusive Discounts"
-              description="From safe drivers to bundled policies, we help you save."
-            />
-            <BenefitItem
-              title="Real Human Support"
-              description="We're not a chatbot. Our agents are ready when you need us."
-            />
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-8">
+            {/* Left column: bullet points + buttons */}
+            <div className="space-y-6">
+              <BenefitItem
+                title="Transparent Quotes"
+                description="Know what you're paying for—no hidden fees, no pushy sales."
+              />
+              <BenefitItem
+                title="Spam-Free Experience"
+                description="Get insured without endless calls or emails. Your privacy, respected."
+              />
+              <BenefitItem
+                title="Exclusive Discounts"
+                description="From safe drivers to bundled policies, we help you save."
+              />
+              <BenefitItem
+                title="Real Human Support"
+                description="We're not a chatbot. Our agents are ready when you need us."
+              />
 
-          <div className="mt-8 flex gap-4">
-            <Link href="/quote" passHref>
-              <Button>Get Your Auto Quote</Button>
-            </Link>
-            <Link href="/contact" passHref>
-              <Button variant="outline">Contact an Agent</Button>
-            </Link>
-          </div>
+              <div className="mt-8 flex gap-4">
+                <Link href="/quote" passHref>
+                  <Button>Get Your Auto Quote</Button>
+                </Link>
+                <Link href="/contact" passHref>
+                  <Button variant="outline">Contact an Agent</Button>
+                </Link>
+              </div>
+            </div>
 
-          <div className="mt-12 text-center">
-            <div className="relative w-full h-[900px] mx-auto">
+            {/* Right column: illustration */}
+            <div className="relative w-full h-[500px] rounded-xl overflow-hidden">
               <Image
                 src="/auto-insurance/Auto_Insurance_Section03.png"
                 alt="Updated auto insurance illustration"
                 fill
-                className="rounded-xl shadow-lg object-cover"
+                className="object-cover"
               />
             </div>
           </div>
@@ -222,7 +223,11 @@ type CoverageCardProps = {
   description: string;
 };
 
-const CoverageCard: React.FC<CoverageCardProps> = ({ icon, title, description }) => {
+const CoverageCard: React.FC<CoverageCardProps> = ({
+  icon,
+  title,
+  description,
+}) => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (

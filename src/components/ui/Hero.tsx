@@ -9,7 +9,9 @@ import Button from "@/components/ui/Button";
 interface HeroProps {
   title: string;
   subtitle: string;
+  tagline?: string;
   image: string | string[];
+  imageAlt?: string;
   primaryButtonText?: string;
   primaryButtonLink?: string;
   secondaryButtonText?: string;
@@ -17,47 +19,36 @@ interface HeroProps {
   showTrustBadges?: boolean;
   trustBadges?: string[];
   slideIntervalMs?: number;
-  imageAlt?: string;
 }
 
 const Hero: React.FC<HeroProps> = ({
   title,
   subtitle,
+  tagline,
   image,
   imageAlt = "Hero background",
-  primaryButtonText = "Get Quote",
-  primaryButtonLink = "/quote",
+  primaryButtonText,
+  primaryButtonLink,
   secondaryButtonText,
   secondaryButtonLink,
   showTrustBadges = false,
-  trustBadges = [
-    "BBB Accredited",
-    "Partnered with A-Rated Carriers",
-    "100% Online, No Calls Required",
-  ],
+  trustBadges = [],
   slideIntervalMs = 5000,
 }) => {
-  const images = useMemo(
-    () => (Array.isArray(image) ? image : [image]),
-    [image]
-  );
+  const images = useMemo(() => (Array.isArray(image) ? image : [image]), [image]);
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     if (images.length < 2) return;
-    const timer = setInterval(() => {
-      setCurrent(i => (i + 1) % images.length);
-    }, slideIntervalMs);
+    const timer = setInterval(() => setCurrent(i => (i + 1) % images.length), slideIntervalMs);
     return () => clearInterval(timer);
   }, [images, slideIntervalMs]);
 
+  const showButtons = Boolean(primaryButtonText && primaryButtonLink) ||
+                      Boolean(secondaryButtonText && secondaryButtonLink);
+
   return (
-    <div
-      className="relative w-full min-h-[600px] overflow-hidden"
-      role="img"
-      aria-label={imageAlt}
-    >
-      {/* slide container */}
+    <div className="relative w-full min-h-[600px] overflow-hidden" role="img" aria-label={imageAlt}>
       <AnimatePresence>
         {images.map((src, idx) =>
           idx === current ? (
@@ -73,10 +64,8 @@ const Hero: React.FC<HeroProps> = ({
           ) : null
         )}
       </AnimatePresence>
-      {/* dark overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-neutral-900/70 to-primary-900/60" />
 
-      {/* content */}
       <div className="relative z-10 container-custom flex flex-col justify-center min-h-[600px] py-24">
         <motion.h1
           className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
@@ -88,7 +77,7 @@ const Hero: React.FC<HeroProps> = ({
         </motion.h1>
 
         <motion.p
-          className="text-xl text-neutral-100 mb-8"
+          className="text-xl text-neutral-100 mb-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -96,30 +85,43 @@ const Hero: React.FC<HeroProps> = ({
           {subtitle}
         </motion.p>
 
-        <motion.div
-          className="flex flex-wrap gap-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          <Link href={primaryButtonLink} passHref>
-            <Button variant="primary" className="font-semibold">
-              {primaryButtonText}
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
-          </Link>
+        {tagline && (
+          <motion.p
+            className="text-lg text-neutral-200 mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            {tagline}
+          </motion.p>
+        )}
 
-          {secondaryButtonLink && secondaryButtonText && (
-            <Link href={secondaryButtonLink} passHref>
-              <Button
-                variant="outline"
-                className="bg-white/10 border-white text-white hover:bg-white/20"
-              >
-                {secondaryButtonText}
-              </Button>
-            </Link>
-          )}
-        </motion.div>
+        {/* Buttons */}
+        {showButtons && (
+          <motion.div
+            className="flex flex-wrap gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            {primaryButtonText && primaryButtonLink && (
+              <Link href={primaryButtonLink} passHref>
+                <Button variant="primary" className="font-semibold">
+                  {primaryButtonText}
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
+            )}
+
+            {secondaryButtonText && secondaryButtonLink && (
+              <Link href={secondaryButtonLink} passHref>
+                <Button variant="outline" className="bg-white/10 border-white text-white hover:bg-white/20">
+                  {secondaryButtonText}
+                </Button>
+              </Link>
+            )}
+          </motion.div>
+        )}
 
         {showTrustBadges && trustBadges.length > 0 && (
           <motion.div

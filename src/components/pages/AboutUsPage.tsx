@@ -18,7 +18,7 @@ const AboutUsPage: React.FC = () => {
     <>
       {/* Hero Section */}
       <Hero
-        title="Who We Are & Why We Exist"
+        title="About Cherries Insurance"
         subtitle="We don’t sell insurance. We simplify it."
         image="/about/Back_Ground_Photo_About_Us.png"
         imageAlt="Woman browsing online insurance site on tablet"

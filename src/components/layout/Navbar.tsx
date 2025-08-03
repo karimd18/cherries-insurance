@@ -33,7 +33,7 @@ export default function Navbar() {
   const insuranceLinks = [
     { href: '/home-insurance', label: 'Home Insurance' },
     { href: '/auto-insurance', label: 'Auto Insurance' },
-    { href: '/renter-insurance', label: 'Renter Insurance' },
+    { href: '/renter-insurance', label: 'Renters Insurance' },
     { href: '/bop-insurance', label: 'Business Insurance' },
     { href: '/motorcycle-insurance', label: 'Motorcycle Insurance' },
   ]
@@ -47,7 +47,7 @@ export default function Navbar() {
     <nav className={`fixed top-0 w-full z-50 bg-white transition-shadow duration-300 ${isScrolled ? 'shadow-md' : ''}`}>
       <div className="container-custom flex items-center justify-between py-1">
         <Link href="/" className="relative z-20">
-          <Image src='/logo/logo.png' alt="Cherries Insurance" width={150} height={40} />
+          <Image src='/logo/logo.png' alt="Cherries Insurance" width={200} height={60} />
         </Link>
 
         {/* Desktop */}

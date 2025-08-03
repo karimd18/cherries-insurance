@@ -10,7 +10,7 @@ const ContactUsPage: React.FC = () => {
     <>
       {/* Hero Section */}
       <Hero
-        title="Let’s Connect"
+        title="Contact US"
         subtitle={`Have a question, need a quote, or just not finding what you’re looking for?
 We’re here to help — with fast answers, friendly support, and no pressure.`}
         image="/contact/contact-bg.png"

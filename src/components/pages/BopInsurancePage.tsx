@@ -68,7 +68,7 @@ const BOPInsurancePage: React.FC = () => {
 
             <div className="relative w-full h-[400px] lg:h-[500px]">
               <Image
-                src="/bop-insurance/Background_Photo_Business_Insurance.png"
+                src="/bop-insurance/Business_Insurance_Section02.png"
                 alt="Business insurance illustration"
                 fill
                 className="rounded-xl shadow-lg object-cover"

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React from "react";
 import { motion } from "framer-motion";
@@ -37,6 +37,7 @@ export default function HomePage() {
       <Hero
         title="We don’t sell insurance. We simplify it."
         subtitle="Smart, spam-free coverage. All online. All in one place."
+        tagline="Get peace of mind knowing you’re covered by Cherries Insurance"
         image="/home/Background_Photo_Home_Page.png"
         imageAlt="Downtown Boston street view with historic brownstone buildings and modern skyscrapers under a clear blue sky"
         primaryButtonText="Get a Free Quote"
@@ -45,8 +46,7 @@ export default function HomePage() {
         trustBadges={[
           "BBB Accredited",
           "Partnered with A-Rated Carriers",
-          "100% Online, No Calls Required",
-          "No Spam, No Pressure",
+          "100% Online, No Calls Required, No Spam, No Pressure",
         ]}
       />
 
@@ -62,15 +62,14 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "Homeowner Insurance",
+                title: "Home Insurance",
                 features: [
                   "Property & belongings",
                   "Fire, theft, storms",
                   "Personal liability",
                 ],
                 icon: <Home className="w-6 h-6" />,
-                image:
-                  "/home/Background_Photo_Home_Page.png",
+                image: "/home/Background_Photo_Home_Page.png",
                 link: "/home-insurance",
                 delay: 0,
               },
@@ -82,8 +81,7 @@ export default function HomePage() {
                   "Roadside & rentals",
                 ],
                 icon: <Car className="w-6 h-6" />,
-                image:
-                  "/home/Auto_Card_Photo_Section03.png",
+                image: "/home/Auto_Card_Photo_Section03.png",
                 link: "/auto-insurance",
                 delay: 1,
               },
@@ -121,24 +119,23 @@ export default function HomePage() {
                   "Multi-bike discounts",
                 ],
                 icon: <Bike className="w-6 h-6" />,
-                image:
-                  "/home/Motorcycle_Card_Photo_Section03.png",
+                image: "/home/Motorcycle_Card_Photo_Section03.png",
                 link: "/motorcycle-insurance",
                 delay: 4,
               },
-              {
-                title: "Yacht Insurance",
-                features: [
-                  "Hull & engine damage",
-                  "Storms & towing",
-                  "Marina-ready coverage",
-                ],
-                icon: <Anchor className="w-6 h-6" />,
-                image:
-                  "https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg?auto=compress&cs=tinysrgb&w=1260&dpr=2",
-                link: "/yacht-insurance",
-                delay: 5,
-              },
+              // {
+              //   title: "Yacht Insurance",
+              //   features: [
+              //     "Hull & engine damage",
+              //     "Storms & towing",
+              //     "Marina-ready coverage",
+              //   ],
+              //   icon: <Anchor className="w-6 h-6" />,
+              //   image:
+              //     "https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg?auto=compress&cs=tinysrgb&w=1260&dpr=2",
+              //   link: "/yacht-insurance",
+              //   delay: 5,
+              // },
             ].map(({ title, features, icon, image, link, delay }) => (
               <motion.div
                 key={title}
@@ -148,11 +145,16 @@ export default function HomePage() {
                 transition={{ duration: 0.5, delay: delay * 0.1 }}
               >
                 <Card>
-                  <CardImage
-                    src={image}
-                    alt={title}
-                    className="h-48 object-cover"
-                  />
+                  <div className="relative w-full h-48 bg-neutral-100 rounded-t-lg overflow-hidden">
+                    <Image
+                      src={image}
+                      alt={title}
+                      fill
+                      className="object-fill"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+
                   <CardContent>
                     <div className="flex items-center gap-3 mb-4">
                       <div className="gradient-bg w-10 h-10 rounded-full flex items-center justify-center">
@@ -172,10 +174,7 @@ export default function HomePage() {
                       ))}
                     </ul>
                     <Link href={link} passHref legacyBehavior>
-                      <Button
-                        variant="outline"
-                        className="w-full quote-button"
-                      >
+                      <Button variant="outline" className="w-full quote-button">
                         Learn More
                         <ArrowRight className="ml-2 w-4 h-4" />
                       </Button>
@@ -380,19 +379,19 @@ export default function HomePage() {
               {
                 name: "BBB",
                 logo: "/reviews/BBB_Logo.png",
-                url: "#",
+                url: "https://www.bbb.org/us/ma/arlington/profile/insurance-agency/cherries-insuranceagency-llc-0021-568179",
                 alt: "Better Business Bureau logo — leave us a BBB review",
               },
               {
                 name: "Trustpilot",
                 logo: "/reviews/TrustPilot_Logo.png",
-                url: "#",
+                url: "https://www.trustpilot.com/review/cherriesinsurance.com",
                 alt: "Trustpilot logo — leave us a Trustpilot review",
               },
               {
                 name: "Google Reviews",
                 logo: "/reviews/Google_Reviews_Logo.png",
-                url: "#",
+                url: "https://g.page/r/CbKzxA5S00IxEAI/review",
                 alt: "Google Reviews logo — leave us a Google review",
               },
             ].map(({ name, logo, url, alt }) => (
@@ -404,18 +403,15 @@ export default function HomePage() {
                 className="group bg-white p-6 rounded-xl shadow-sm hover:shadow-lg hover:scale-105 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
                 aria-label={`Leave review on ${name}`}
               >
-                <div className="relative mx-auto h-12 w-32">
+                <div className="relative mx-auto h-16 w-44">
                   <Image
                     src={logo}
                     alt={alt}
                     fill
                     className="object-contain"
-                    sizes="(max-width: 640px) 100px, 200px"
+                    sizes="(max-width: 640px) 140px, 176px"
                   />
                 </div>
-                <span className="mt-3 block text-sm font-medium text-neutral-700 group-hover:text-primary-700">
-                  {name}
-                </span>
               </a>
             ))}
           </div>
