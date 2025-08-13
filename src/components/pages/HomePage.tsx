@@ -41,7 +41,7 @@ export default function HomePage() {
         title="We don’t sell insurance. We simplify it."
         subtitle="Smart, spam-free coverage. All online. All in one place."
         tagline="Get peace of mind knowing you’re covered by Cherries Insurance"
-        image="/home/Background_Photo_Home_Page.png"
+        image="/home/Home_Page_Background.png"
         imageAlt="Downtown Boston street view with historic brownstone buildings and modern skyscrapers under a clear blue sky"
         primaryButtonText="Get a Free Quote"
         primaryButtonLink="/quote"

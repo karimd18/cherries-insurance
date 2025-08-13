@@ -20,7 +20,7 @@ const AboutUsPage: React.FC = () => {
       <Hero
         title="About Cherries Insurance"
         subtitle="We don’t sell insurance. We simplify it."
-        image="/about/Back_Ground_Photo_About_Us.png"
+        image="/about/AboutUS_Page_Background.png"
         imageAlt="Woman browsing online insurance site on tablet"
         primaryButtonText="Get a Quote"
         primaryButtonLink="/quote"
@@ -55,7 +55,7 @@ const AboutUsPage: React.FC = () => {
             </div>
             <div className="relative w-full h-[600px]">
               <Image
-                src="/about/Body_Photo_About_Us.png"
+                src="/about/AboutUs_Page_SideImage.png"
                 alt="Team members in a meeting"
                 fill
                 className="rounded-xl shadow-lg object-cover"

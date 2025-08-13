@@ -31,7 +31,7 @@ const HomeInsurancePage: React.FC = () => {
       <Hero
         title="We Cover More Than Just Walls."
         subtitle="Protect your home, your memories, and your peace of mind—all in one quote."
-        image="/home-insurance/Background_Photo_Home_Insurance.png"
+        image="/home-insurance/Home_Insurance_Background.png"
         imageAlt="Modern family home with kids and dog seen through the window at sunset"
         primaryButtonText="Get Your Home Quote"
         primaryButtonLink="/quote"
@@ -101,7 +101,7 @@ const HomeInsurancePage: React.FC = () => {
       <section className="section bg-neutral-50" ref={whyRef}>
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative w-full h-[400px] lg:h-[500px]">
+            <div className="relative w-full h-[400px] lg:h-[700px]">
               <Image
                 src="/home-insurance/Home_Insurance_Section03.png"
                 alt="Family receiving home insurance support"

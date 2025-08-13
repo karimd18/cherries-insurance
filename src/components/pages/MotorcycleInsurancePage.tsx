@@ -31,7 +31,7 @@ const MotorcycleInsurancePage: React.FC = () => {
       <Hero
         title="Coverage That Keeps Pace With You."
         subtitle="Because every turn, curve, and straightaway deserves protection."
-        image="/motorcycle-insurance/Background_Photo_Motorcycle_Insurance.png"
+        image="/motorcycle-insurance/Motorcycle_Insurance_Background.png"
         imageAlt="Motorcyclist riding a cruiser-style bike at sunset on a scenic road"
         primaryButtonText="Get Your Motorcycle Quote"
         primaryButtonLink="/quote"
@@ -129,7 +129,7 @@ const MotorcycleInsurancePage: React.FC = () => {
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative w-full h-[650px]">
+            <div className="relative w-full h-[750px]">
               <Image
                 src="/motorcycle-insurance/Motorcycle_Insurance_Section03.png"
                 alt="Motorcyclist on a scenic road with insurance illustration"

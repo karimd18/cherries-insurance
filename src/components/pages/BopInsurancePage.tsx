@@ -1,16 +1,31 @@
-'use client'
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Briefcase, ShieldCheck, Building, Users, DollarSign, CheckCircle, ArrowRight, Truck } from 'lucide-react';
-import Link from 'next/link';
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import {
+  Briefcase,
+  ShieldCheck,
+  Building,
+  Users,
+  DollarSign,
+  CheckCircle,
+  ArrowRight,
+  Truck,
+} from "lucide-react";
+import Link from "next/link";
 
-import Hero from '@/components/ui/Hero';
-import SectionTitle from '@/components/ui/SectionTitle';
-import Button from '@/components/ui/Button';
-import Card, { CardContent, CardTitle } from '@/components/ui/Card';
+import Hero from "@/components/ui/Hero";
+import SectionTitle from "@/components/ui/SectionTitle";
+import Button from "@/components/ui/Button";
+import Card, { CardContent, CardTitle } from "@/components/ui/Card";
+
+const SIDE_IMAGES = [
+  "/bop-insurance/Business_Insurance__SideImage_01.png",
+  "/bop-insurance/Business_Insurance__SideImage_02.png",
+  "/bop-insurance/Business_Insurance__SideImage_03.png",
+];
 
 const BOPInsurancePage: React.FC = () => {
   const [covRef] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -28,16 +43,18 @@ const BOPInsurancePage: React.FC = () => {
         primaryButtonLink="/quote"
         showTrustBadges
         trustBadges={[
-          'BBB Accredited',
-          'Partnered with A-Rated Carriers',
-          '100% Online, No Calls Required, No Spam, No Pressure'
+          "BBB Accredited",
+          "Partnered with A-Rated Carriers",
+          "100% Online, No Calls Required, No Spam, No Pressure",
         ]}
       />
 
       {/* What is BOP Section */}
       <section className="section">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Wider images column; card hugs images; no gaps between images */}
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] items-center gap-12">
+            {/* Left: text */}
             <div>
               <SectionTitle
                 title="What is a Business Owners Policy? (BOP)"
@@ -46,16 +63,22 @@ const BOPInsurancePage: React.FC = () => {
 
               <div className="space-y-6 text-neutral-700">
                 <p>
-                  A Business Owners Policy (BOP) combines the essential coverages many small businesses need—property, liability, and business interruption—into one affordable package.
+                  A Business Owners Policy (BOP) combines the essential
+                  coverages many small businesses need—property, liability, and
+                  business interruption—into one affordable package.
                 </p>
                 <p>
-                  It’s designed specifically for small to mid-sized businesses that want protection from common risks without the complexity of buying multiple policies.
+                  It’s designed specifically for small to mid-sized businesses
+                  that want protection from common risks without the complexity
+                  of buying multiple policies.
                 </p>
                 <p>
-                  Instead of juggling separate coverages, a BOP simplifies insurance with bundled protection—often at a lower total cost.
+                  Instead of juggling separate coverages, a BOP simplifies
+                  insurance with bundled protection—often at a lower total cost.
                 </p>
                 <p>
-                  At Cherries Insurance, we help tailor your BOP with optional add-ons so your coverage matches your actual business needs.
+                  At Cherries Insurance, we help tailor your BOP with optional
+                  add-ons so your coverage matches your actual business needs.
                 </p>
 
                 <div className="mt-8">
@@ -66,13 +89,24 @@ const BOPInsurancePage: React.FC = () => {
               </div>
             </div>
 
-            <div className="relative w-full h-[400px] lg:h-[500px]">
-              <Image
-                src="/bop-insurance/Business_Insurance_Section02.png"
-                alt="Business insurance illustration"
-                fill
-                className="rounded-xl shadow-lg object-cover"
-              />
+            {/* Right: a single "card" that is exactly the size of the images; images touch (no gaps) */}
+            <div className="w-full">
+              <div className="rounded-xl overflow-hidden shadow-lg">
+                <div className="grid grid-cols-3 gap-0 h-[460px] md:h-[540px] lg:h-[620px]">
+                  {SIDE_IMAGES.map((src, i) => (
+                    <div key={src} className="relative">
+                      <Image
+                        src={src}
+                        alt={`Business owners working ${i + 1}`}
+                        fill
+                        className="object-cover" /* use object-contain if you prefer zero crop (will add side letterboxing) */
+                        priority={i === 0}
+                        sizes="(min-width:1280px) 28vw, (min-width:1024px) 32vw, 90vw"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -97,16 +131,20 @@ const BOPInsurancePage: React.FC = () => {
                   <CardTitle>Property Insurance</CardTitle>
                 </div>
                 <p className="text-neutral-600 mb-4">
-                  Protects your physical business assets like buildings, furniture, equipment, and inventory against damage or loss due to fire, theft, vandalism, and certain natural events.
+                  Protects your physical business assets like buildings,
+                  furniture, equipment, and inventory against damage or loss due
+                  to fire, theft, vandalism, and certain natural events.
                 </p>
                 <ul className="space-y-2">
                   {[
-                    'Owned or leased building coverage',
-                    'Business personal property',
-                    'Equipment protection',
-                    'Inventory and stock',
-                    'Computers and electronics'
-                  ].map(item => <CoverageItem key={item} text={item} />)}
+                    "Owned or leased building coverage",
+                    "Business personal property",
+                    "Equipment protection",
+                    "Inventory and stock",
+                    "Computers and electronics",
+                  ].map((item) => (
+                    <CoverageItem key={item} text={item} />
+                  ))}
                 </ul>
               </CardContent>
             </Card>
@@ -120,16 +158,20 @@ const BOPInsurancePage: React.FC = () => {
                   <CardTitle>Liability Protection</CardTitle>
                 </div>
                 <p className="text-neutral-600 mb-4">
-                  Covers legal and settlement costs if your business is found responsible for bodily injury, property damage, or advertising harm.
+                  Covers legal and settlement costs if your business is found
+                  responsible for bodily injury, property damage, or advertising
+                  harm.
                 </p>
                 <ul className="space-y-2">
                   {[
-                    'General liability',
-                    'Legal defense fees',
-                    'Medical payments',
-                    'Product liability',
-                    'Advertising injury'
-                  ].map(item => <CoverageItem key={item} text={item} />)}
+                    "General liability",
+                    "Legal defense fees",
+                    "Medical payments",
+                    "Product liability",
+                    "Advertising injury",
+                  ].map((item) => (
+                    <CoverageItem key={item} text={item} />
+                  ))}
                 </ul>
               </CardContent>
             </Card>
@@ -143,16 +185,19 @@ const BOPInsurancePage: React.FC = () => {
                   <CardTitle>Business Interruption</CardTitle>
                 </div>
                 <p className="text-neutral-600 mb-4">
-                  Replaces income and helps cover necessary expenses if your operations are paused due to a covered event.
+                  Replaces income and helps cover necessary expenses if your
+                  operations are paused due to a covered event.
                 </p>
                 <ul className="space-y-2">
                   {[
-                    'Lost revenue reimbursement',
-                    'Operating expenses',
-                    'Payroll coverage',
-                    'Temporary relocation costs',
-                    'Rent, lease, and mortgage support'
-                  ].map(item => <CoverageItem key={item} text={item} />)}
+                    "Lost revenue reimbursement",
+                    "Operating expenses",
+                    "Payroll coverage",
+                    "Temporary relocation costs",
+                    "Rent, lease, and mortgage support",
+                  ].map((item) => (
+                    <CoverageItem key={item} text={item} />
+                  ))}
                 </ul>
               </CardContent>
             </Card>
@@ -177,14 +222,14 @@ const BOPInsurancePage: React.FC = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { icon: <Building className="w-6 h-6" />, title: 'Retail Stores' },
-              { icon: <Users className="w-6 h-6" />, title: 'Professional Services' },
-              { icon: <Briefcase className="w-6 h-6" />, title: 'Contractors' },
-              { icon: <Truck className="w-6 h-6" />, title: 'Food Services' },
-              { icon: <Building className="w-6 h-6" />, title: 'Healthcare Practices' },
-              { icon: <Building className="w-6 h-6" />, title: 'Real Estate' },
-              { icon: <Briefcase className="w-6 h-6" />, title: 'Technology Firms' },
-              { icon: <ShieldCheck className="w-6 h-6" />, title: 'Many More' }
+              { icon: <Building className="w-6 h-6" />, title: "Retail Stores" },
+              { icon: <Users className="w-6 h-6" />, title: "Professional Services" },
+              { icon: <Briefcase className="w-6 h-6" />, title: "Contractors" },
+              { icon: <Truck className="w-6 h-6" />, title: "Food Services" },
+              { icon: <Building className="w-6 h-6" />, title: "Healthcare Practices" },
+              { icon: <Building className="w-6 h-6" />, title: "Real Estate" },
+              { icon: <Briefcase className="w-6 h-6" />, title: "Technology Firms" },
+              { icon: <ShieldCheck className="w-6 h-6" />, title: "Many More" },
             ].map(({ icon, title }) => (
               <IndustryCard key={title} icon={icon} title={title} />
             ))}
@@ -192,7 +237,9 @@ const BOPInsurancePage: React.FC = () => {
 
           <div className="mt-12 text-center">
             <p className="text-neutral-600 mb-6 max-w-2xl mx-auto">
-              Not sure if your business qualifies for a Business Owners Policy? Let’s talk. Our team will help you find the right fit for your operations.
+              Not sure if your business qualifies for a Business Owners Policy?
+              Let’s talk. Our team will help you find the right fit for your
+              operations.
             </p>
             <Link href="/contact" passHref>
               <Button>Speak with a Specialist</Button>
@@ -208,17 +255,26 @@ const BOPInsurancePage: React.FC = () => {
             Protect your business with comprehensive coverage
           </h2>
           <p className="text-white/90 text-xl mb-8 max-w-2xl mx-auto">
-            Get a customized BOP insurance quote tailored to your business needs.
+            Get a customized BOP insurance quote tailored to your business
+            needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/quote" passHref>
-              <Button variant="primary" size="lg" className="bg-white text-primary-700 hover:bg-neutral-100">
+              <Button
+                variant="primary"
+                size="lg"
+                className="bg-white text-primary-700 hover:bg-neutral-100"
+              >
                 Get Your Business Quote
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
             <Link href="/contact" passHref>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/20">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-white text-white hover:bg-white/20"
+              >
                 Speak with a Specialist
               </Button>
             </Link>

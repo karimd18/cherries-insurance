@@ -31,7 +31,7 @@ const RenterInsurancePage: React.FC = () => {
       <Hero
         title="Protect What Makes It Home."
         subtitle="Affordable renters insurance that protects what matters—wherever you live."
-        image="/renter-insurance/Background_Photo_Renters_Insurance.png"
+        image="/renter-insurance/Renters_Insurance_Background.png"
         imageAlt="Cozy, sunlit apartment interior with stylish furniture"
         primaryButtonText="Get Your Renters Quote"
         primaryButtonLink="/quote"

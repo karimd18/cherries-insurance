@@ -32,9 +32,9 @@ const AutoInsurancePage: React.FC = () => {
         title="Protection That Moves With You"
         subtitle="Flexible auto coverage tailored to your needs, with honest pricing and no pressure."
         image={[
-          "/auto-insurance/Background_Photo_Auto_Insurance.png",
-          "/auto-insurance/Background_Photo_Auto_Insurance_01.png",
-          "/auto-insurance/Background_Photo_Auto_Insurance_02.png",
+          "/auto-insurance/Auto_Insurance_Background_01.png",
+          "/auto-insurance/Auto_Insurance_Background_02.png",
+          "/auto-insurance/Auto_Insurance_Background_03.png",
         ]}
         imageAlt="Driver’s seat view with hands on the wheel and car interior."
         primaryButtonText="Get Your Auto Quote"
@@ -141,7 +141,7 @@ const AutoInsurancePage: React.FC = () => {
             {/* Right column: illustration */}
             <div className="relative w-full h-[500px] rounded-xl overflow-hidden">
               <Image
-                src="/auto-insurance/Auto_Insurance_Section03.png"
+                src="/auto-insurance/Auto_Insurance_SideImage.png"
                 alt="Updated auto insurance illustration"
                 fill
                 className="object-cover"

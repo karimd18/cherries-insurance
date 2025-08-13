@@ -40,11 +40,19 @@ export default function QuotePage() {
 
   // Disable background scrolling when popup is active
   useEffect(() => {
-    document.body.style.overflow = showPopup ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
+    if (typeof document !== "undefined") {
+      document.body.style.overflow = showPopup ? "hidden" : "";
+      return () => {
+        document.body.style.overflow = "";
+      };
+    }
   }, [showPopup]);
+
+  const reviewLogos = [
+    { logo: "/reviews/BBB_Logo.png", alt: "BBB logo", url: "#" },
+    { logo: "/reviews/TrustPilot_Logo.png", alt: "Trustpilot logo", url: "#" },
+    { logo: "/reviews/Google_Reviews_Logo.png", alt: "Google Reviews logo", url: "#" },
+  ];
 
   return (
     <>
@@ -79,7 +87,7 @@ export default function QuotePage() {
         <Hero
           title="Get a Free Insurance Quote"
           subtitle="Quick, easy, and personalized insurance quotes in just a few minutes."
-          image="/quote/Background_Photo_GetaQuote_Page.png"
+          image="/quote/Get_Quote_CTA_Background.png"
           imageAlt="Person using a laptop with an insurance quote form"
           primaryButtonText="Get Started"
           primaryButtonLink="#quote-form"
@@ -172,15 +180,10 @@ export default function QuotePage() {
                     <Link
                       key={href}
                       href={href}
-                      passHref
                       className="flex flex-col items-center p-4 bg-white rounded-xl shadow hover:shadow-lg ring-1 ring-neutral-200 hover:ring-primary-300 transition focus:outline-none focus:ring-2 focus:ring-primary-500"
                     >
-                      <div className="p-3 rounded-lg bg-primary-50 mb-2">
-                        {icon}
-                      </div>
-                      <span className="text-sm font-medium text-neutral-700">
-                        {label}
-                      </span>
+                      <div className="p-3 rounded-lg bg-primary-50 mb-2">{icon}</div>
+                      <span className="text-sm font-medium text-neutral-700">{label}</span>
                     </Link>
                   ))}
                 </div>
@@ -198,41 +201,18 @@ export default function QuotePage() {
               centered
             />
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-8">
-              {[
-                {
-                  name: "BBB",
-                  logo: "/reviews/BBB_Logo.png",
-                  url: "#",
-                },
-                {
-                  name: "Trustpilot",
-                  logo: "/reviews/TrustPilot_Logo.png",
-                  url: "#",
-                },
-                {
-                  name: "Google Reviews",
-                  logo: "/reviews/Google_Reviews_Logo.png",
-                  url: "#",
-                },
-              ].map(({ name, logo, url }) => (
+              {reviewLogos.map(({ logo, alt, url }) => (
                 <a
-                  key={name}
+                  key={url}
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group bg-white p-6 rounded-xl shadow-sm hover:shadow-lg hover:scale-105 transition-transform duration-200"
                 >
-                  <div className="relative mx-auto h-12 w-auto">
-                    <Image
-                      src={logo}
-                      alt={`${name} logo`}
-                      fill
-                      className="object-contain"
-                    />
+                  {/* Parent needs explicit width & height when using Image with fill */}
+                  <div className="relative mx-auto h-12 w-36">
+                    <Image src={logo} alt={alt} fill className="object-contain" />
                   </div>
-                  <span className="mt-3 block text-sm font-medium text-neutral-700 group-hover:text-primary-700">
-                    {name}
-                  </span>
                 </a>
               ))}
             </div>
