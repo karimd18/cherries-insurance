@@ -1,28 +1,28 @@
 "use client";
 
-import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import Link from "next/link";
-import Image from "next/image";
 import {
-  Shield,
-  Home,
-  Car,
-  Building,
-  Users,
-  Clock,
-  CheckCircle,
-  Award,
-  ArrowRight,
-  Bike,
+    ArrowRight,
+    Award,
+    Bike,
+    Building,
+    Car,
+    CheckCircle,
+    Clock,
+    Home,
+    Shield,
+    Users,
 } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
-import Hero from "@/components/ui/Hero";
 import Button from "@/components/ui/Button";
 import Card, { CardContent } from "@/components/ui/Card";
-import SectionTitle from "@/components/ui/SectionTitle";
 import FeatureCard from "@/components/ui/FeatureCard";
+import Hero from "@/components/ui/Hero";
+import SectionTitle from "@/components/ui/SectionTitle";
 
 export default function HomePage() {
   const [featuresRef] = useInView({
@@ -381,7 +381,7 @@ export default function HomePage() {
               {
                 name: "BBB",
                 logo: "/reviews/BBB_Logo.png",
-                url: "https://www.bbb.org/us/ma/arlington/profile/insurance-agency/cherries-insuranceagency-llc-0021-568179",
+                url: "https://www.bbb.org/us/ma/arlington/profile/insurance-agency/cherriesinsuranceagency-llc-0021-568179",
                 alt: "Better Business Bureau logo — leave us a BBB review",
               },
               {

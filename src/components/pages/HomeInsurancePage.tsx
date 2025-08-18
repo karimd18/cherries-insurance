@@ -1,24 +1,24 @@
 'use client'
 
-import React from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import {
-  Home,
-  ShieldCheck,
-  Flame,
-  Droplet,
-  Wind,
-  AlertTriangle,
-  DollarSign,
-  ArrowRight
+    AlertTriangle,
+    ArrowRight,
+    DollarSign,
+    Droplet,
+    Flame,
+    Home,
+    ShieldCheck,
+    Wind
 } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
+import React from 'react';
+import { useInView } from 'react-intersection-observer';
 
+import Button from '@/components/ui/Button';
 import Hero from '@/components/ui/Hero';
 import SectionTitle from '@/components/ui/SectionTitle';
-import Button from '@/components/ui/Button';
 
 const HomeInsurancePage: React.FC = () => {
   const [covRef] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -31,7 +31,7 @@ const HomeInsurancePage: React.FC = () => {
       <Hero
         title="We Cover More Than Just Walls."
         subtitle="Protect your home, your memories, and your peace of mind—all in one quote."
-        image="/home-insurance/Home_Insurance_Background.png"
+        image="/home-insurance/Background_Photo_Home_Insurance.png"
         imageAlt="Modern family home with kids and dog seen through the window at sunset"
         primaryButtonText="Get Your Home Quote"
         primaryButtonLink="/quote"

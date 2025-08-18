@@ -31,7 +31,7 @@ const MotorcycleInsurancePage: React.FC = () => {
       <Hero
         title="Coverage That Keeps Pace With You."
         subtitle="Because every turn, curve, and straightaway deserves protection."
-        image="/motorcycle-insurance/Motorcycle_Insurance_Background.png"
+        image="/motorcycle-insurance/Background_Photo_Motorcycle_Insurance.png"
         imageAlt="Motorcyclist riding a cruiser-style bike at sunset on a scenic road"
         primaryButtonText="Get Your Motorcycle Quote"
         primaryButtonLink="/quote"

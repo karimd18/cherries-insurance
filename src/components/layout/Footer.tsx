@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
 const Footer: React.FC = () => {
   const year = new Date().getFullYear();
@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
     { href: "/about", label: "About Us" },
     { href: "/contact", label: "Contact Us" },
     { href: "/quote", label: "Get a Quote" },
-    { href: "/cherries-insurance_FAQ", label: "FAQs" },
+    { href: "/cherriesinsurance_FAQ", label: "FAQs" },
   ];
 
   const insuranceLines = [

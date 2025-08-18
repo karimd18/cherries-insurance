@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useEffect } from "react";
 import Layout from "@/components/layout/Layout";
-import "./global.css";
 import Head from "next/head";
-import Script from "next/script";
 import Image from "next/image";
+import Script from "next/script";
+import React, { useEffect } from "react";
+import "./global.css";
 
 export default function RootLayout({
   children,
@@ -31,7 +31,7 @@ export default function RootLayout({
           name="description"
           content="Cherries Insurance is a modern, independent insurance agency helping individuals and small businesses compare quotes and get covered — without spam, pressure, or hassle."
         />
-        <link rel="canonical" href="https://cherries-insurance.vercel.app/" />
+        <link rel="canonical" href="https://cherriesinsurance.com/" />
 
         {/* Open Graph */}
         <meta
@@ -44,7 +44,7 @@ export default function RootLayout({
         />
         <meta
           property="og:url"
-          content="https://cherries-insurance.vercel.app/"
+          content="https://cherriesinsurance.com/"
         />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="/Background_Photo_Home_Page.png" />
@@ -68,7 +68,7 @@ export default function RootLayout({
             "@context": "https://schema.org",
             "@type": ["LocalBusiness","InsuranceAgency"],
             "name": "Cherries Insurance",
-            "url": "https://cherries-insurance.vercel.app/",
+            "url": "https://cherriesinsurance.com/",
             "logo": "/logo.png",
             "image": "/Background_Photo_Home_Page.png",
             "description": "Cherries Insurance is a modern, independent insurance agency helping individuals and small businesses compare quotes and get covered — without spam, pressure, or hassle.",
