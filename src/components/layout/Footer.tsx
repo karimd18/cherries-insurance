@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
     { href: "/about", label: "About Us" },
     { href: "/contact", label: "Contact Us" },
     { href: "/quote", label: "Get a Quote" },
-    { href: "/cherriesinsurance_FAQ", label: "FAQs" },
+    { href: "/faq", label: "FAQs" },
   ];
 
   const insuranceLines = [
