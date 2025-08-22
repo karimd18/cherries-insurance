@@ -38,7 +38,7 @@ const MotorcycleInsurancePage: React.FC = () => {
         showTrustBadges
         trustBadges={[
         //   'BBB Accredited',
-          'Partnered with A-Rated Carriers',
+        //   'Partnered with A-Rated Carriers',
           '100% Online, No Calls Required, No Spam, No Pressure'
         ]}
       />
