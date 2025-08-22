@@ -41,7 +41,7 @@ const AutoInsurancePage: React.FC = () => {
         primaryButtonLink="/quote"
         showTrustBadges={true}
         trustBadges={[
-          "BBB Accredited",
+        //   "BBB Accredited",
           "Partnered with A-Rated Carriers",
           "100% Online, No Calls Required, No Spam, No Pressure",
         ]}

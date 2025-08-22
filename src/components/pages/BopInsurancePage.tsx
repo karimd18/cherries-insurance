@@ -42,7 +42,7 @@ const BOPInsurancePage: React.FC = () => {
                 primaryButtonLink="/quote"
                 showTrustBadges
                 trustBadges={[
-                    "BBB Accredited",
+                    // "BBB Accredited",
                     "Partnered with A-Rated Carriers",
                     "100% Online, No Calls Required, No Spam, No Pressure",
                 ]}

@@ -95,7 +95,7 @@ export default function QuotePage() {
           secondaryButtonLink="/about"
           showTrustBadges={true}
           trustBadges={[
-            "BBB Accredited",
+            // "BBB Accredited",
             "Partnered with A-Rated Carriers",
             "100% Online, No Calls Required, No Spam, No Pressure",
           ]}
@@ -193,7 +193,7 @@ export default function QuotePage() {
         </section>
 
         {/* 3. Reviews Section */}
-        <section className="section">
+        {/* <section className="section">
           <div className="container-custom text-center">
             <SectionTitle
               title="Love Cherries Insurance? Let others know!"
@@ -209,7 +209,6 @@ export default function QuotePage() {
                   rel="noopener noreferrer"
                   className="group bg-white p-6 rounded-xl shadow-sm hover:shadow-lg hover:scale-105 transition-transform duration-200"
                 >
-                  {/* Parent needs explicit width & height when using Image with fill */}
                   <div className="relative mx-auto h-12 w-36">
                     <Image src={logo} alt={alt} fill className="object-contain" />
                   </div>
@@ -217,7 +216,7 @@ export default function QuotePage() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
       </div>
     </>
   );

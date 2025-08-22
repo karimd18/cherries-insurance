@@ -47,7 +47,7 @@ export default function HomePage() {
         primaryButtonLink="/quote"
         showTrustBadges
         trustBadges={[
-          "BBB Accredited",
+        //   "BBB Accredited",
           "Partnered with A-Rated Carriers",
           "100% Online, No Calls Required, No Spam, No Pressure",
         ]}
@@ -378,24 +378,24 @@ export default function HomePage() {
 
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-8">
             {[
-              {
-                name: "BBB",
-                logo: "/reviews/BBB_Logo.png",
-                url: "https://www.bbb.org/us/ma/arlington/profile/insurance-agency/cherriesinsuranceagency-llc-0021-568179",
-                alt: "Better Business Bureau logo — leave us a BBB review",
-              },
-              {
-                name: "Trustpilot",
-                logo: "/reviews/TrustPilot_Logo.png",
-                url: "https://www.trustpilot.com/review/cherriesinsurance.com",
-                alt: "Trustpilot logo — leave us a Trustpilot review",
-              },
-              {
-                name: "Google Reviews",
-                logo: "/reviews/Google_Reviews_Logo.png",
-                url: "https://g.page/r/CbKzxA5S00IxEAI/review",
-                alt: "Google Reviews logo — leave us a Google review",
-              },
+            //   {
+            //     name: "BBB",
+            //     logo: "/reviews/BBB_Logo.png",
+            //     url: "https://www.bbb.org/us/ma/arlington/profile/insurance-agency/cherriesinsuranceagency-llc-0021-568179",
+            //     alt: "Better Business Bureau logo — leave us a BBB review",
+            //   },
+            //   {
+            //     name: "Trustpilot",
+            //     logo: "/reviews/TrustPilot_Logo.png",
+            //     url: "https://www.trustpilot.com/review/cherriesinsurance.com",
+            //     alt: "Trustpilot logo — leave us a Trustpilot review",
+            //   },
+            //   {
+            //     name: "Google Reviews",
+            //     logo: "/reviews/Google_Reviews_Logo.png",
+            //     url: "https://g.page/r/CbKzxA5S00IxEAI/review",
+            //     alt: "Google Reviews logo — leave us a Google review",
+            //   },
             ].map(({ name, logo, url, alt }) => (
               <a
                 key={name}
