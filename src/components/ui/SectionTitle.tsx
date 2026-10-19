@@ -9,6 +9,7 @@ type SectionTitleProps = {
   centered?: boolean;
   className?: string;
   textWhite?: boolean;
+  as?: 'h1' | 'h2';
 };
 
 const SectionTitle: React.FC<SectionTitleProps> = ({ 
@@ -17,7 +18,10 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
   centered = false,
   className = '',
   textWhite = false,
+  as = 'h2',
 }) => {
+  const Heading = as === 'h1' ? motion.h1 : motion.h2;
+
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -28,14 +32,14 @@ const SectionTitle: React.FC<SectionTitleProps> = ({
       ref={ref} 
       className={`mb-12 ${centered ? 'text-center' : ''} ${className}`}
     >
-      <motion.h2 
+      <Heading
         className={`text-3xl md:text-4xl font-bold mb-4 ${textWhite ? 'text-white' : 'gradient-text'}`}
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.5 }}
       >
         {title}
-      </motion.h2>
+      </Heading>
       
       {subtitle && (
         <motion.p 

@@ -17,6 +17,7 @@ import {
 import Link from 'next/link';
 
 import Hero from '@/components/ui/Hero';
+import { QUOTE_LINKS } from '@/lib/quoteLinks';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Button from '@/components/ui/Button';
 
@@ -34,7 +35,7 @@ const MotorcycleInsurancePage: React.FC = () => {
         image="/motorcycle-insurance/Background_Photo_Motorcycle_Insurance.png"
         imageAlt="Motorcyclist riding a cruiser-style bike at sunset on a scenic road"
         primaryButtonText="Get Your Motorcycle Quote"
-        primaryButtonLink="/quote"
+        primaryButtonLink={QUOTE_LINKS.motorcycle}
         showTrustBadges
         trustBadges={[
         //   'BBB Accredited',
@@ -112,7 +113,7 @@ const MotorcycleInsurancePage: React.FC = () => {
           </p>
 
           <div className="mt-8 text-center">
-            <Link href="/quote" passHref>
+            <Link href={QUOTE_LINKS.motorcycle} passHref>
               <Button size="lg">Get Your Motorcycle Quote</Button>
             </Link>
           </div>
@@ -177,7 +178,7 @@ const MotorcycleInsurancePage: React.FC = () => {
               ))}
 
               <div className="mt-8">
-                <Link href="/quote" passHref>
+                <Link href={QUOTE_LINKS.motorcycle} passHref>
                   <Button>Get Your Motorcycle Quote</Button>
                 </Link>
               </div>
@@ -244,7 +245,7 @@ const MotorcycleInsurancePage: React.FC = () => {
             It’s not just a bike—it’s freedom. Let’s protect it.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/quote" passHref>
+            <Link href={QUOTE_LINKS.motorcycle} passHref>
               <Button
                 variant="primary"
                 size="lg"

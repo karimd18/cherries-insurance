@@ -5,6 +5,7 @@ import {
     ArrowRight,
     Award,
     Bike,
+    Briefcase,
     Building,
     Car,
     CheckCircle,
@@ -23,6 +24,7 @@ import Card, { CardContent } from "@/components/ui/Card";
 import FeatureCard from "@/components/ui/FeatureCard";
 import Hero from "@/components/ui/Hero";
 import SectionTitle from "@/components/ui/SectionTitle";
+import { QUOTE_LINKS } from "@/lib/quoteLinks";
 
 export default function HomePage() {
   const [featuresRef] = useInView({
@@ -38,7 +40,7 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <Hero
-        title="We don’t sell insurance. We simplify it."
+        title="The sweet side of insurance."
         subtitle="Smart, spam-free coverage. All online. All in one place."
         tagline="Get peace of mind knowing you’re covered by Cherries Insurance"
         image="/home/Home_Page_Background.png"
@@ -52,6 +54,112 @@ export default function HomePage() {
           "100% Online, No Calls Required, No Spam, No Pressure",
         ]}
       />
+
+      {/* Get a Quote. Skip the Calls. */}
+      <section className="section">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <SectionTitle
+                title="Get a Quote. Skip the Calls."
+                subtitle="Choose your coverage, complete our secure online form, and we'll help you explore your insurance options."
+              />
+              <ul className="space-y-4 mb-8 text-neutral-700">
+                {[
+                  "No annoying calls. No spam. No pressure.",
+                  "Explore coverage options from trusted insurance carriers.",
+                  "Request your quote online, at your convenience.",
+                ].map((item, i) => (
+                  <motion.li
+                    key={i}
+                    className="flex items-start"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
+                  >
+                    <CheckCircle className="w-5 h-5 text-primary-600 mr-2 mt-0.5 flex-shrink-0" />
+                    {item}
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <SectionTitle
+                title="Select Your Coverage Type"
+                subtitle="Choose a coverage to get started. It only takes a minute."
+              />
+              <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-6">
+                {[
+                  {
+                    icon: <Home className="w-8 h-8" />,
+                    label: "Home",
+                    link: QUOTE_LINKS.home,
+                  },
+                  {
+                    icon: <Car className="w-8 h-8" />,
+                    label: "Auto",
+                    link: QUOTE_LINKS.auto,
+                  },
+                  {
+                    icon: (
+                      <Image
+                        src="/home/Renters_Insurance_Icon.png"
+                        alt=""
+                        width={32}
+                        height={32}
+                        className="w-8 h-8"
+                      />
+                    ),
+                    label: "Renters",
+                    link: QUOTE_LINKS.renters,
+                  },
+                  {
+                    icon: <Building className="w-8 h-8" />,
+                    label: "Condo",
+                    link: QUOTE_LINKS.condo,
+                  },
+                  {
+                    icon: (
+                      <Image
+                        src="/home/Landlord_Insurance_Icon.png"
+                        alt=""
+                        width={32}
+                        height={32}
+                        className="w-8 h-8"
+                      />
+                    ),
+                    label: "Landlord",
+                    link: QUOTE_LINKS.landlord,
+                  },
+                  {
+                    icon: <Users className="w-8 h-8" />,
+                    label: "Business",
+                    link: "/bop-insurance",
+                  },
+                  {
+                    icon: <Bike className="w-8 h-8" />,
+                    label: "Motorcycle",
+                    link: QUOTE_LINKS.motorcycle,
+                  },
+                ].map(({ icon, label, link }) => (
+                  <Link
+                    key={label}
+                    href={link}
+                    className="flex flex-col items-center w-[calc((100%-0.75rem)/2)] min-[400px]:w-[calc((100%-1.5rem)/3)] sm:w-[calc((100%-2rem)/3)] p-3 sm:p-4 rounded-lg border-2 border-neutral-200 hover:border-primary-500 hover:bg-primary-50 transition-all duration-300"
+                    aria-label={`Get ${label} insurance quote`}
+                  >
+                    <div className="text-primary-600 mb-2">{icon}</div>
+                    <span className="text-sm sm:text-base font-medium text-neutral-700">
+                      {label}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Insurance Made Simple */}
       <section className="section bg-neutral-50">
@@ -95,7 +203,15 @@ export default function HomePage() {
                   "Fire & theft",
                   "Required by landlord",
                 ],
-                icon: <Building className="w-6 h-6" />,
+                icon: (
+                  <Image
+                    src="/home/Renters_Insurance_Icon.png"
+                    alt=""
+                    width={24}
+                    height={24}
+                    className="w-6 h-6 brightness-0 invert"
+                  />
+                ),
                 image:
                   "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&dpr=2",
                 link: "/renter-insurance",
@@ -125,6 +241,18 @@ export default function HomePage() {
                 image: "/home/Motorcycle_Card_Photo_Section03.png",
                 link: "/motorcycle-insurance",
                 delay: 4,
+              },
+              {
+                title: "Explore More Insurance Options",
+                features: [
+                  "Commercial Auto & Trucks",
+                  "Workers' Compensation",
+                  "Boats, Yachts & More",
+                ],
+                icon: <Briefcase className="w-6 h-6" />,
+                image: "/home/Section3_Card_6.jpg",
+                link: "/quote",
+                delay: 5,
               },
               // {
               //   title: "Yacht Insurance",
@@ -185,86 +313,6 @@ export default function HomePage() {
                 </Card>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Get a Quote. Skip the Calls. */}
-      <section className="section">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <SectionTitle
-                title="Get a Quote. Skip the Calls."
-                subtitle="It only takes a few minutes to pick your coverage and see real options."
-              />
-              <ul className="space-y-4 mb-8 text-neutral-700">
-                {[
-                  "No annoying calls. No spam. No pressure.",
-                  "Compare real-time rates.",
-                  "Customize in minutes.",
-                ].map((item, i) => (
-                  <motion.li
-                    key={i}
-                    className="flex items-center"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-                  >
-                    <CheckCircle className="w-5 h-5 text-primary-600 mr-2" />
-                    {item}
-                  </motion.li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <SectionTitle
-                title="Select Your Coverage Type"
-                subtitle="Choose a coverage to get started. It only takes a minute."
-              />
-              <div className="grid grid-cols-3 gap-4 mt-6">
-                {[
-                  {
-                    icon: <Home className="w-8 h-8" />,
-                    label: "Home",
-                    link: "/home-insurance",
-                  },
-                  {
-                    icon: <Car className="w-8 h-8" />,
-                    label: "Auto",
-                    link: "/auto-insurance",
-                  },
-                  {
-                    icon: <Building className="w-8 h-8" />,
-                    label: "Renters",
-                    link: "/renter-insurance",
-                  },
-                  {
-                    icon: <Users className="w-8 h-8" />,
-                    label: "Business",
-                    link: "/bop-insurance",
-                  },
-                  {
-                    icon: <Bike className="w-8 h-8" />,
-                    label: "Motorcycle",
-                    link: "/motorcycle-insurance",
-                  },
-                ].map(({ icon, label, link }) => (
-                  <Link
-                    key={label}
-                    href={link}
-                    className="flex flex-col items-center p-4 rounded-lg border-2 border-neutral-200 hover:border-primary-500 hover:bg-primary-50 transition-all duration-300"
-                    aria-label={`Get ${label} insurance quote`}
-                  >
-                    <div className="text-primary-600 mb-2">{icon}</div>
-                    <span className="font-medium text-neutral-700">
-                      {label}
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -341,8 +389,8 @@ export default function HomePage() {
             Ready to Get Covered the Smarter Way?
           </h2>
           <p className="text-white/90 text-xl mb-8 max-w-2xl mx-auto">
-            Thousands already made the switch. Explore your options—your way,
-            your pace.
+            Explore your insurance options with a simpler, more convenient
+            experience.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/quote" passHref legacyBehavior>
@@ -367,58 +415,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Reviews Section */}
-      <section className="section">
-        <div className="container-custom text-center">
-          <SectionTitle
-            title="Love Cherries Insurance? Let others know!"
-            subtitle="Leave us a quick review on your favorite platform."
-            centered
-          />
-
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-8">
-            {[
-            //   {
-            //     name: "BBB",
-            //     logo: "/reviews/BBB_Logo.png",
-            //     url: "https://www.bbb.org/us/ma/arlington/profile/insurance-agency/cherriesinsuranceagency-llc-0021-568179",
-            //     alt: "Better Business Bureau logo — leave us a BBB review",
-            //   },
-            //   {
-            //     name: "Trustpilot",
-            //     logo: "/reviews/TrustPilot_Logo.png",
-            //     url: "https://www.trustpilot.com/review/cherriesinsurance.com",
-            //     alt: "Trustpilot logo — leave us a Trustpilot review",
-            //   },
-            //   {
-            //     name: "Google Reviews",
-            //     logo: "/reviews/Google_Reviews_Logo.png",
-            //     url: "https://g.page/r/CbKzxA5S00IxEAI/review",
-            //     alt: "Google Reviews logo — leave us a Google review",
-            //   },
-            ].map(({ name, logo, url, alt }) => (
-              <a
-                key={name}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-white p-6 rounded-xl shadow-sm hover:shadow-lg hover:scale-105 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
-                aria-label={`Leave review on ${name}`}
-              >
-                <div className="relative mx-auto h-16 w-44">
-                  <Image
-                    src={logo}
-                    alt={alt}
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 640px) 140px, 176px"
-                  />
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
     </>
   );
 }

@@ -19,7 +19,7 @@ const AboutUsPage: React.FC = () => {
       {/* Hero Section */}
       <Hero
         title="About Cherries Insurance"
-        subtitle="We don’t sell insurance. We simplify it."
+        subtitle="The sweet side of insurance."
         image="/about/AboutUS_Page_Background.png"
         imageAlt="Woman browsing online insurance site on tablet"
         primaryButtonText="Get a Quote"
@@ -45,7 +45,7 @@ const AboutUsPage: React.FC = () => {
                   honest, and stress-free. We built a digital-first, independent
                   agency that puts your time, privacy, and peace of mind first.
                 </p>
-                <p>We don’t sell insurance—we simplify it.</p>
+                <p>The sweet side of insurance.</p>
                 <p>
                   From auto and home to renters and business coverage, we work
                   with top-rated carriers to help you compare real options —

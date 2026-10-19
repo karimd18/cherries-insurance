@@ -50,6 +50,8 @@ export default function Navbar() {
     { href: "/home-insurance", label: "Home Insurance" },
     { href: "/auto-insurance", label: "Auto Insurance" },
     { href: "/renter-insurance", label: "Renters Insurance" },
+    { href: "/condo-insurance", label: "Condo Insurance" },
+    { href: "/landlord-insurance", label: "Landlord Insurance" },
     { href: "/bop-insurance", label: "Business Insurance" },
     { href: "/motorcycle-insurance", label: "Motorcycle Insurance" },
   ];
