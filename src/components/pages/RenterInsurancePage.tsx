@@ -17,6 +17,7 @@ import {
 import Link from 'next/link';
 
 import Hero from '@/components/ui/Hero';
+import { QUOTE_LINKS } from '@/lib/quoteLinks';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Button from '@/components/ui/Button';
 
@@ -34,7 +35,7 @@ const RenterInsurancePage: React.FC = () => {
         image="/renter-insurance/Renters_Insurance_Background.png"
         imageAlt="Cozy, sunlit apartment interior with stylish furniture"
         primaryButtonText="Get Your Renters Quote"
-        primaryButtonLink="/quote"
+        primaryButtonLink={QUOTE_LINKS.renters}
         showTrustBadges
         trustBadges={[
         //   'BBB Accredited',
@@ -113,7 +114,7 @@ const RenterInsurancePage: React.FC = () => {
           </p>
 
           <div className="mt-8 text-center">
-            <Link href="/quote" passHref>
+            <Link href={QUOTE_LINKS.renters} passHref>
               <Button size="lg">Get Your Renters Quote</Button>
             </Link>
           </div>
@@ -180,7 +181,7 @@ const RenterInsurancePage: React.FC = () => {
               ))}
 
               <div className="mt-8 flex gap-4">
-                <Link href="/quote" passHref>
+                <Link href={QUOTE_LINKS.renters} passHref>
                   <Button>Get Your Renters Quote</Button>
                 </Link>
                 <Link href="/contact" passHref>
@@ -251,7 +252,7 @@ const RenterInsurancePage: React.FC = () => {
             Start with a fast, personalized quote. No calls, no pressure.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/quote" passHref>
+            <Link href={QUOTE_LINKS.renters} passHref>
               <Button
                 variant="primary"
                 size="lg"

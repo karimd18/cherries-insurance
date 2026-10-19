@@ -19,6 +19,8 @@ const Footer: React.FC = () => {
     { href: "/auto-insurance", label: "Auto Insurance" },
     { href: "/home-insurance", label: "Home Insurance" },
     { href: "/renter-insurance", label: "Renters Insurance" },
+    { href: "/condo-insurance", label: "Condo Insurance" },
+    { href: "/landlord-insurance", label: "Landlord Insurance" },
     { href: "/bop-insurance", label: "Business Insurance" },
     { href: "/motorcycle-insurance", label: "Motorcycle Insurance" },
   ];
@@ -138,6 +140,13 @@ const Footer: React.FC = () => {
         {/* Contact Us */}
         <div>
           <h4 className="text-white font-bold mb-4">Contact Us</h4>
+          <address className="not-italic mb-4">
+            Cherries Insurance Agency LLC
+            <br />
+            400 TradeCenter, Suite 5900
+            <br />
+            Woburn, MA 01801
+          </address>
           <p className="mb-4">
             We are a fully digital insurance agency
             <br />

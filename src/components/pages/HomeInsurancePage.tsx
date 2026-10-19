@@ -18,6 +18,7 @@ import { useInView } from 'react-intersection-observer';
 
 import Button from '@/components/ui/Button';
 import Hero from '@/components/ui/Hero';
+import { QUOTE_LINKS } from '@/lib/quoteLinks';
 import SectionTitle from '@/components/ui/SectionTitle';
 
 const HomeInsurancePage: React.FC = () => {
@@ -34,7 +35,7 @@ const HomeInsurancePage: React.FC = () => {
         image="/home-insurance/Background_Photo_Home_Insurance.png"
         imageAlt="Modern family home with kids and dog seen through the window at sunset"
         primaryButtonText="Get Your Home Quote"
-        primaryButtonLink="/quote"
+        primaryButtonLink={QUOTE_LINKS.home}
         showTrustBadges
         trustBadges={[
         //   'BBB Accredited',
@@ -90,7 +91,7 @@ const HomeInsurancePage: React.FC = () => {
           </p>
 
           <div className="mt-8 text-center">
-            <Link href="/quote" passHref>
+            <Link href={QUOTE_LINKS.home} passHref>
               <Button size="lg">Get Your Home Quote</Button>
             </Link>
           </div>
@@ -135,7 +136,7 @@ const HomeInsurancePage: React.FC = () => {
               </div>
 
               <div className="mt-8 flex gap-4">
-                <Link href="/quote" passHref>
+                <Link href={QUOTE_LINKS.home} passHref>
                   <Button>Get Your Home Quote</Button>
                 </Link>
                 <Link href="/contact" passHref>
@@ -195,7 +196,7 @@ const HomeInsurancePage: React.FC = () => {
             Get a personalized quote in minutes. No calls, no pressure.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/quote" passHref>
+            <Link href={QUOTE_LINKS.home} passHref>
               <Button
                 variant="primary"
                 size="lg"

@@ -17,6 +17,7 @@ import {
 import Link from "next/link";
 
 import Hero from "@/components/ui/Hero";
+import { QUOTE_LINKS } from "@/lib/quoteLinks";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Button from "@/components/ui/Button";
 
@@ -38,7 +39,7 @@ const AutoInsurancePage: React.FC = () => {
         ]}
         imageAlt="Driver’s seat view with hands on the wheel and car interior."
         primaryButtonText="Get Your Auto Quote"
-        primaryButtonLink="/quote"
+        primaryButtonLink={QUOTE_LINKS.auto}
         showTrustBadges={true}
         trustBadges={[
         //   "BBB Accredited",
@@ -93,7 +94,7 @@ const AutoInsurancePage: React.FC = () => {
             <p className="text-neutral-600 mb-6">
               Curious what your rate might be? Let’s get you a quick quote.
             </p>
-            <Link href="/quote" passHref>
+            <Link href={QUOTE_LINKS.auto} passHref>
               <Button size="lg">Get Your Auto Quote</Button>
             </Link>
           </div>
@@ -129,7 +130,7 @@ const AutoInsurancePage: React.FC = () => {
               />
 
               <div className="mt-8 flex gap-4">
-                <Link href="/quote" passHref>
+                <Link href={QUOTE_LINKS.auto} passHref>
                   <Button>Get Your Auto Quote</Button>
                 </Link>
                 <Link href="/contact" passHref>
@@ -191,7 +192,7 @@ const AutoInsurancePage: React.FC = () => {
             Start with a quick quote. No calls, no pressure.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/quote" passHref>
+            <Link href={QUOTE_LINKS.auto} passHref>
               <Button
                 variant="primary"
                 size="lg"
