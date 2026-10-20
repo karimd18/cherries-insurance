@@ -17,7 +17,7 @@ import {
 import Link from 'next/link';
 
 import Hero from '@/components/ui/Hero';
-import { QUOTE_LINKS } from '@/lib/quoteLinks';
+import { NEW_TAB, QUOTE_LINKS } from '@/lib/quoteLinks';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Button from '@/components/ui/Button';
 
@@ -113,7 +113,7 @@ const MotorcycleInsurancePage: React.FC = () => {
           </p>
 
           <div className="mt-8 text-center">
-            <Link href={QUOTE_LINKS.motorcycle} passHref>
+            <Link href={QUOTE_LINKS.motorcycle} passHref {...NEW_TAB}>
               <Button size="lg">Get Your Motorcycle Quote</Button>
             </Link>
           </div>
@@ -178,7 +178,7 @@ const MotorcycleInsurancePage: React.FC = () => {
               ))}
 
               <div className="mt-8">
-                <Link href={QUOTE_LINKS.motorcycle} passHref>
+                <Link href={QUOTE_LINKS.motorcycle} passHref {...NEW_TAB}>
                   <Button>Get Your Motorcycle Quote</Button>
                 </Link>
               </div>
@@ -245,7 +245,7 @@ const MotorcycleInsurancePage: React.FC = () => {
             It’s not just a bike—it’s freedom. Let’s protect it.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href={QUOTE_LINKS.motorcycle} passHref>
+            <Link href={QUOTE_LINKS.motorcycle} passHref {...NEW_TAB}>
               <Button
                 variant="primary"
                 size="lg"

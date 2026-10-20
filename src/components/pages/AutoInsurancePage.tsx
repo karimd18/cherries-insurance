@@ -17,7 +17,7 @@ import {
 import Link from "next/link";
 
 import Hero from "@/components/ui/Hero";
-import { QUOTE_LINKS } from "@/lib/quoteLinks";
+import { NEW_TAB, QUOTE_LINKS } from "@/lib/quoteLinks";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Button from "@/components/ui/Button";
 
@@ -94,7 +94,7 @@ const AutoInsurancePage: React.FC = () => {
             <p className="text-neutral-600 mb-6">
               Curious what your rate might be? Let’s get you a quick quote.
             </p>
-            <Link href={QUOTE_LINKS.auto} passHref>
+            <Link href={QUOTE_LINKS.auto} passHref {...NEW_TAB}>
               <Button size="lg">Get Your Auto Quote</Button>
             </Link>
           </div>
@@ -130,7 +130,7 @@ const AutoInsurancePage: React.FC = () => {
               />
 
               <div className="mt-8 flex gap-4">
-                <Link href={QUOTE_LINKS.auto} passHref>
+                <Link href={QUOTE_LINKS.auto} passHref {...NEW_TAB}>
                   <Button>Get Your Auto Quote</Button>
                 </Link>
                 <Link href="/contact" passHref>
@@ -192,7 +192,7 @@ const AutoInsurancePage: React.FC = () => {
             Start with a quick quote. No calls, no pressure.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href={QUOTE_LINKS.auto} passHref>
+            <Link href={QUOTE_LINKS.auto} passHref {...NEW_TAB}>
               <Button
                 variant="primary"
                 size="lg"

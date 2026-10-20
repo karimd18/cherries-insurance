@@ -15,7 +15,7 @@ import {
 import Link from "next/link";
 
 import SectionTitle from "@/components/ui/SectionTitle";
-import { QUOTE_LINKS } from "@/lib/quoteLinks";
+import { NEW_TAB, QUOTE_LINKS } from "@/lib/quoteLinks";
 
 const coverageButtonClass =
   "flex flex-col items-center justify-center text-center w-[calc((100%-1rem)/2)] md:w-[calc((100%-3rem)/3)] p-4 bg-white rounded-xl shadow hover:shadow-lg ring-1 ring-neutral-200 hover:ring-primary-300 transition focus:outline-none focus:ring-2 focus:ring-primary-500";
@@ -134,7 +134,7 @@ export default function QuotePage() {
           />
           <div className="max-w-3xl mx-auto flex flex-wrap justify-center gap-4 md:gap-6">
             {coverageOptions.map(({ icon, label, href }) => (
-              <Link key={label} href={href} className={coverageButtonClass}>
+              <Link key={label} href={href} {...NEW_TAB} className={coverageButtonClass}>
                 <div className="p-3 rounded-lg bg-primary-50 text-primary-600 mb-2">{icon}</div>
                 <span className="text-sm font-medium text-neutral-700">{label}</span>
               </Link>
