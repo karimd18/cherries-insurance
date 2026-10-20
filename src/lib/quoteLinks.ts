@@ -11,3 +11,9 @@ export const QUOTE_LINKS = {
   condo: `${BINDER_LABS_BASE}/condo-insurance-application`,
   motorcycle: `${BINDER_LABS_BASE}/motorcycle-application-form`,
 } as const;
+
+// The application forms live on another site, so open them in a new tab.
+export const NEW_TAB = { target: "_blank", rel: "noopener noreferrer" } as const;
+
+export const newTabIfExternal = (href: string) =>
+  href.startsWith("http") ? NEW_TAB : {};

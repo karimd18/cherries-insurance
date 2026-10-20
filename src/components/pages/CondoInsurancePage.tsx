@@ -16,7 +16,7 @@ import {
 import Link from 'next/link';
 
 import Hero from '@/components/ui/Hero';
-import { QUOTE_LINKS } from '@/lib/quoteLinks';
+import { NEW_TAB, QUOTE_LINKS } from '@/lib/quoteLinks';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Button from '@/components/ui/Button';
 
@@ -107,7 +107,7 @@ const CondoInsurancePage: React.FC = () => {
           </p>
 
           <div className="mt-8 text-center">
-            <Link href={QUOTE_LINKS.condo} passHref>
+            <Link href={QUOTE_LINKS.condo} passHref {...NEW_TAB}>
               <Button size="lg">Get Your Condo Quote</Button>
             </Link>
           </div>
@@ -175,7 +175,7 @@ const CondoInsurancePage: React.FC = () => {
               ))}
 
               <div className="mt-8">
-                <Link href={QUOTE_LINKS.condo} passHref>
+                <Link href={QUOTE_LINKS.condo} passHref {...NEW_TAB}>
                   <Button>Get Your Condo Quote</Button>
                 </Link>
               </div>
@@ -242,7 +242,7 @@ const CondoInsurancePage: React.FC = () => {
             Explore condo insurance options with a simpler, more convenient experience.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href={QUOTE_LINKS.condo} passHref>
+            <Link href={QUOTE_LINKS.condo} passHref {...NEW_TAB}>
               <Button
                 variant="primary"
                 size="lg"

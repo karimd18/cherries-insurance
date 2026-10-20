@@ -24,7 +24,7 @@ import Card, { CardContent } from "@/components/ui/Card";
 import FeatureCard from "@/components/ui/FeatureCard";
 import Hero from "@/components/ui/Hero";
 import SectionTitle from "@/components/ui/SectionTitle";
-import { QUOTE_LINKS } from "@/lib/quoteLinks";
+import { QUOTE_LINKS, newTabIfExternal } from "@/lib/quoteLinks";
 
 export default function HomePage() {
   const [featuresRef] = useInView({
@@ -146,6 +146,7 @@ export default function HomePage() {
                   <Link
                     key={label}
                     href={link}
+                    {...newTabIfExternal(link)}
                     className="flex flex-col items-center w-[calc((100%-0.75rem)/2)] min-[400px]:w-[calc((100%-1.5rem)/3)] sm:w-[calc((100%-2rem)/3)] p-3 sm:p-4 rounded-lg border-2 border-neutral-200 hover:border-primary-500 hover:bg-primary-50 transition-all duration-300"
                     aria-label={`Get ${label} insurance quote`}
                   >

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Shield } from "lucide-react";
 import Button from "@/components/ui/Button";
+import { newTabIfExternal } from "@/lib/quoteLinks";
 
 interface HeroProps {
   title: string;
@@ -105,7 +106,7 @@ const Hero: React.FC<HeroProps> = ({
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             {primaryButtonText && primaryButtonLink && (
-              <Link href={primaryButtonLink} passHref>
+              <Link href={primaryButtonLink} passHref {...newTabIfExternal(primaryButtonLink)}>
                 <Button variant="primary" className="font-semibold">
                   {primaryButtonText}
                   <ArrowRight className="ml-2 w-4 h-4" />
